@@ -1,52 +1,226 @@
-// MURUQ.THECH — app catalogue and card rendering
+
 window.MURUQ = window.MURUQ || {};
 
 window.MURUQ.apps = [
-  {name:"VLC for Android",platform:"android",category:"media",symbol:"▶",color:"#d66c21",description:"Play a wide range of video and audio formats.",device:"Android",url:"https://www.videolan.org/vlc/download-android.html"},
-  {name:"Firefox for Android",platform:"android",category:"tools",symbol:"🦊",color:"#6e3dde",description:"A mobile browser with privacy tools and extensions.",device:"Android",url:"https://www.mozilla.org/firefox/browsers/mobile/android/"},
-  {name:"Telegram",platform:"android",category:"tools",symbol:"➤",color:"#168bd2",description:"Messaging, group chats and file sharing.",device:"Android",url:"https://telegram.org/android"},
-  {name:"Krita",platform:"pc",category:"media",symbol:"K",color:"#269e91",description:"Create digital paintings, illustrations and artwork.",device:"Windows / PC",url:"https://krita.org/en/download/"},
-  {name:"VLC Media Player",platform:"pc",category:"media",symbol:"▶",color:"#d66c21",description:"A free player for many video and audio formats.",device:"Windows / PC",url:"https://www.videolan.org/vlc/"},
-  {name:"7-Zip",platform:"pc",category:"tools",symbol:"7z",color:"#337ac3",description:"Compress and extract archive files.",device:"Windows / PC",url:"https://www.7-zip.org/"},
-  {name:"GIMP",platform:"pc",category:"media",symbol:"G",color:"#9a743a",description:"An image editor for photos and graphic design.",device:"Windows / PC",url:"https://www.gimp.org/downloads/"},
-  {name:"LibreOffice",platform:"pc",category:"tools",symbol:"▤",color:"#2672b5",description:"Office tools for documents, spreadsheets and slides.",device:"Windows / PC",url:"https://www.libreoffice.org/download/download-libreoffice/"},
-  {name:"Godot Engine",platform:"pc",category:"games",symbol:"◆",color:"#347ac2",description:"A free engine for building 2D and 3D games.",device:"Windows / PC",url:"https://godotengine.org/download/"},
-  {name:"Blender",platform:"pc",category:"media",symbol:"◉",color:"#bd6b2a",description:"Create 3D models, animation and visual effects.",device:"Windows / PC",url:"https://www.blender.org/download/"},
-  {name:"Audacity",platform:"pc",category:"media",symbol:"♫",color:"#366bc1",description:"Record and edit audio on your computer.",device:"Windows / PC",url:"https://www.audacityteam.org/download/"},
-  {name:"Android Developers",platform:"android",category:"tools",symbol:"A",color:"#3e9c64",description:"Official Android developer resources and tools.",device:"Android / Web",url:"https://developer.android.com/"}
+  {
+    name: "Google Chrome",
+    platform: "android",
+    category: "tools",
+    symbol: "🌐",
+    color: "#4285f4",
+    description: "Browse the web with Google's popular mobile browser.",
+    device: "Android",
+    url: "https://play.google.com/store/apps/details?id=com.android.chrome"
+  },
+  {
+    name: "Firefox",
+    platform: "android",
+    category: "tools",
+    symbol: "🦊",
+    color: "#e87524",
+    description: "A browser with privacy features and useful extensions.",
+    device: "Android",
+    url: "https://www.mozilla.org/firefox/browsers/mobile/android/"
+  },
+  {
+    name: "Telegram",
+    platform: "android",
+    category: "tools",
+    symbol: "➤",
+    color: "#229ed9",
+    description: "Messaging, groups and file sharing.",
+    device: "Android",
+    url: "https://telegram.org/android"
+  },
+  {
+    name: "VLC for Android",
+    platform: "android",
+    category: "media",
+    symbol: "▶",
+    color: "#e76b26",
+    description: "Play a wide range of video and audio formats.",
+    device: "Android",
+    url: "https://www.videolan.org/vlc/download-android.html"
+  },
+  {
+    name: "WhatsApp",
+    platform: "android",
+    category: "tools",
+    symbol: "☎",
+    color: "#20b96a",
+    description: "Send messages and make calls with people you know.",
+    device: "Android",
+    url: "https://www.whatsapp.com/android"
+  },
+  {
+    name: "CapCut",
+    platform: "android",
+    category: "media",
+    symbol: "✂",
+    color: "#343b4b",
+    description: "Create and edit videos on your phone.",
+    device: "Android",
+    url: "https://www.capcut.com/"
+  },
+  {
+    name: "Krita",
+    platform: "pc",
+    category: "media",
+    symbol: "K",
+    color: "#269e91",
+    description: "Create digital paintings and illustrations.",
+    device: "Windows / PC",
+    url: "https://krita.org/en/download/"
+  },
+  {
+    name: "VLC Media Player",
+    platform: "pc",
+    category: "media",
+    symbol: "▶",
+    color: "#e76b26",
+    description: "Play many video and audio formats on your computer.",
+    device: "Windows / PC",
+    url: "https://www.videolan.org/vlc/"
+  },
+  {
+    name: "7-Zip",
+    platform: "pc",
+    category: "tools",
+    symbol: "7z",
+    color: "#337ac3",
+    description: "Compress and extract files.",
+    device: "Windows / PC",
+    url: "https://www.7-zip.org/"
+  },
+  {
+    name: "GIMP",
+    platform: "pc",
+    category: "media",
+    symbol: "G",
+    color: "#9a743a",
+    description: "Edit images and create graphics.",
+    device: "Windows / PC",
+    url: "https://www.gimp.org/downloads/"
+  },
+  {
+    name: "LibreOffice",
+    platform: "pc",
+    category: "tools",
+    symbol: "▤",
+    color: "#2672b5",
+    description: "Create documents, spreadsheets and presentations.",
+    device: "Windows / PC",
+    url: "https://www.libreoffice.org/download/download-libreoffice/"
+  },
+  {
+    name: "Godot Engine",
+    platform: "pc",
+    category: "games",
+    symbol: "◆",
+    color: "#347ac2",
+    description: "Build your own 2D and 3D games.",
+    device: "Windows / PC",
+    url: "https://godotengine.org/download/"
+  },
+  {
+    name: "Blender",
+    platform: "pc",
+    category: "media",
+    symbol: "◉",
+    color: "#bd6b2a",
+    description: "Create 3D models, animation and visual effects.",
+    device: "Windows / PC",
+    url: "https://www.blender.org/download/"
+  },
+  {
+    name: "Audacity",
+    platform: "pc",
+    category: "media",
+    symbol: "♫",
+    color: "#366bc1",
+    description: "Record and edit audio on your computer.",
+    device: "Windows / PC",
+    url: "https://www.audacityteam.org/download/"
+  },
+  {
+    name: "Epic Games Store",
+    platform: "pc",
+    category: "games",
+    symbol: "E",
+    color: "#303642",
+    description: "Explore PC games through the official game store.",
+    device: "Windows / PC",
+    url: "https://store.epicgames.com/"
+  }
 ];
 
 window.MURUQ.escapeHTML = function(value) {
-  return String(value).replace(/[&<>"']/g, char => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[char]));
+  return String(value).replace(/[&<>"']/g, char => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#039;"
+  })[char]);
 };
 
 window.MURUQ.renderCatalog = function() {
   const grid = document.getElementById("appGrid");
   const count = document.getElementById("count");
   const empty = document.getElementById("emptyState");
+
   if (!grid) return;
 
-  const term = window.MURUQ.searchTerm || "";
+  const term = (window.MURUQ.searchTerm || "").toLowerCase();
   const filter = window.MURUQ.activeFilter || "all";
   const safe = window.MURUQ.escapeHTML;
+
   const results = window.MURUQ.apps.filter(app => {
-    const matchesFilter = filter === "all" || app.platform === filter || app.category === filter;
-    const text = `${app.name} ${app.description} ${app.platform} ${app.category}`.toLowerCase();
-    return matchesFilter && text.includes(term);
+    const matchesFilter =
+      filter === "all" ||
+      app.platform === filter ||
+      app.category === filter;
+
+    const searchable =
+      `${app.name} ${app.description} ${app.platform} ${app.category} ${app.device}`
+        .toLowerCase();
+
+    return matchesFilter && searchable.includes(term);
   });
 
   grid.innerHTML = results.map(app => `
     <article class="app-card">
-      <div class="card-head"><div class="app-logo" style="--logo:${app.color}">${safe(app.symbol)}</div><span class="tag">${app.platform === "android" ? "ANDROID" : "PC SOFTWARE"}</span></div>
+      <div class="card-head">
+        <div class="app-logo" style="--logo:${safe(app.color)}">
+          ${safe(app.symbol)}
+        </div>
+        <span class="tag">
+          ${app.platform === "android" ? "ANDROID" : "PC SOFTWARE"}
+        </span>
+      </div>
       <h3>${safe(app.name)}</h3>
       <p>${safe(app.description)}</p>
-      <div class="meta"><span>${safe(app.device)}</span><span>${safe(app.category.toUpperCase())}</span></div>
-      <a class="download" href="${app.url}" target="_blank" rel="noopener noreferrer">Official download ↗</a>
-    </article>`).join("");
+      <div class="meta">
+        <span>${safe(app.device)}</span>
+        <span>${safe(app.category.toUpperCase())}</span>
+      </div>
+      <a class="download"
+         href="${safe(app.url)}"
+         target="_blank"
+         rel="noopener noreferrer">
+        Official download <span>↗</span>
+      </a>
+    </article>
+  `).join("");
 
-  if (count) count.textContent = `${results.length} ${results.length === 1 ? "item" : "items"}`;
-  if (empty) empty.hidden = results.length > 0;
+  if (count) {
+    count.textContent = `${results.length} ${results.length === 1 ? "item" : "items"}`;
+  }
+
+  if (empty) empty.hidden = results.length !== 0;
   grid.hidden = results.length === 0;
 };
 
-document.addEventListener("DOMContentLoaded", () => window.MURUQ.renderCatalog());
+document.addEventListener("DOMContentLoaded", () => {
+  window.MURUQ.renderCatalog();
+});
