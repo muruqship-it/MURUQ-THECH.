@@ -8,7 +8,7 @@ window.MURUQ.apps = [
     category: "tools",
     symbol: "🌐",
     color: "#4285f4",
-    description: "Browse the web with Google's popular mobile browser.",
+    description: "Fast web browsing on your Android phone.",
     device: "Android",
     url: "https://play.google.com/store/apps/details?id=com.android.chrome"
   },
@@ -18,7 +18,7 @@ window.MURUQ.apps = [
     category: "tools",
     symbol: "🦊",
     color: "#e87524",
-    description: "A browser with privacy features and useful extensions.",
+    description: "A browser with privacy tools.",
     device: "Android",
     url: "https://www.mozilla.org/firefox/browsers/mobile/android/"
   },
@@ -28,7 +28,7 @@ window.MURUQ.apps = [
     category: "tools",
     symbol: "➤",
     color: "#229ed9",
-    description: "Messaging, groups and file sharing.",
+    description: "Messaging and file sharing.",
     device: "Android",
     url: "https://telegram.org/android"
   },
@@ -38,7 +38,7 @@ window.MURUQ.apps = [
     category: "media",
     symbol: "▶",
     color: "#e76b26",
-    description: "Play a wide range of video and audio formats.",
+    description: "Play video and audio files.",
     device: "Android",
     url: "https://www.videolan.org/vlc/download-android.html"
   },
@@ -48,7 +48,7 @@ window.MURUQ.apps = [
     category: "tools",
     symbol: "☎",
     color: "#20b96a",
-    description: "Send messages and make calls with people you know.",
+    description: "Messages and calls.",
     device: "Android",
     url: "https://www.whatsapp.com/android"
   },
@@ -58,7 +58,7 @@ window.MURUQ.apps = [
     category: "media",
     symbol: "✂",
     color: "#343b4b",
-    description: "Create and edit videos on your phone.",
+    description: "Video editing tools.",
     device: "Android",
     url: "https://www.capcut.com/"
   },
@@ -68,7 +68,7 @@ window.MURUQ.apps = [
     category: "media",
     symbol: "K",
     color: "#269e91",
-    description: "Create digital paintings and illustrations.",
+    description: "Digital painting and illustration.",
     device: "Windows / PC",
     url: "https://krita.org/en/download/"
   },
@@ -78,7 +78,7 @@ window.MURUQ.apps = [
     category: "media",
     symbol: "▶",
     color: "#e76b26",
-    description: "Play many video and audio formats on your computer.",
+    description: "A free media player for computers.",
     device: "Windows / PC",
     url: "https://www.videolan.org/vlc/"
   },
@@ -98,7 +98,7 @@ window.MURUQ.apps = [
     category: "media",
     symbol: "G",
     color: "#9a743a",
-    description: "Edit images and create graphics.",
+    description: "Image editing software.",
     device: "Windows / PC",
     url: "https://www.gimp.org/downloads/"
   },
@@ -108,7 +108,7 @@ window.MURUQ.apps = [
     category: "tools",
     symbol: "▤",
     color: "#2672b5",
-    description: "Create documents, spreadsheets and presentations.",
+    description: "Documents, spreadsheets and presentations.",
     device: "Windows / PC",
     url: "https://www.libreoffice.org/download/download-libreoffice/"
   },
@@ -118,7 +118,7 @@ window.MURUQ.apps = [
     category: "games",
     symbol: "◆",
     color: "#347ac2",
-    description: "Build your own 2D and 3D games.",
+    description: "Create your own 2D and 3D games.",
     device: "Windows / PC",
     url: "https://godotengine.org/download/"
   },
@@ -128,7 +128,7 @@ window.MURUQ.apps = [
     category: "media",
     symbol: "◉",
     color: "#bd6b2a",
-    description: "Create 3D models, animation and visual effects.",
+    description: "3D modelling and animation.",
     device: "Windows / PC",
     url: "https://www.blender.org/download/"
   },
@@ -138,7 +138,7 @@ window.MURUQ.apps = [
     category: "media",
     symbol: "♫",
     color: "#366bc1",
-    description: "Record and edit audio on your computer.",
+    description: "Record and edit audio.",
     device: "Windows / PC",
     url: "https://www.audacityteam.org/download/"
   },
@@ -148,20 +148,20 @@ window.MURUQ.apps = [
     category: "games",
     symbol: "E",
     color: "#303642",
-    description: "Explore PC games through the official game store.",
+    description: "Discover PC games.",
     device: "Windows / PC",
     url: "https://store.epicgames.com/"
   }
 ];
 
 window.MURUQ.escapeHTML = function(value) {
-  return String(value).replace(/[&<>"']/g, char => ({
+  return String(value).replace(/[&<>"']/g, c => ({
     "&": "&amp;",
     "<": "&lt;",
     ">": "&gt;",
     '"': "&quot;",
     "'": "&#039;"
-  })[char]);
+  })[c]);
 };
 
 window.MURUQ.renderCatalog = function() {
@@ -181,11 +181,11 @@ window.MURUQ.renderCatalog = function() {
       app.platform === filter ||
       app.category === filter;
 
-    const searchable =
+    const text =
       `${app.name} ${app.description} ${app.platform} ${app.category} ${app.device}`
-        .toLowerCase();
+      .toLowerCase();
 
-    return matchesFilter && searchable.includes(term);
+    return matchesFilter && text.includes(term);
   });
 
   grid.innerHTML = results.map(app => `
@@ -204,25 +204,18 @@ window.MURUQ.renderCatalog = function() {
         <span>${safe(app.device)}</span>
         <span>${safe(app.category.toUpperCase())}</span>
       </div>
-      <a class="download"
-         href="${safe(app.url)}"
-         target="_blank"
-         rel="noopener noreferrer">
-        Official download <span>↗</span>
+      <a class="download" href="${safe(app.url)}"
+         target="_blank" rel="noopener noreferrer">
+        Official download ↗
       </a>
     </article>
   `).join("");
 
-  if (count) {
-    count.textContent = `${results.length} ${results.length === 1 ? "item" : "items"}`;
-  }
-
-  if (empty) empty.hidden = results.length !== 0;
+  if (count) count.textContent = results.length + " items";
+  if (empty) empty.hidden = results.length > 0;
   grid.hidden = results.length === 0;
 };
-document.addEventListener("DOMContentLoaded", () => {
-  window.MURUQ.renderCatalog();
-});
+
 document.addEventListener("DOMContentLoaded", () => {
   window.MURUQ.renderCatalog();
 });
