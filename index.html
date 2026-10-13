@@ -1,117 +1,37 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#090b18">
-<title>MURUQ.TECH — Apps Hub</title>
-<style>
-:root{--bg:#080a16;--panel:#11152a;--text:#f7f8ff;--muted:#a8b0ce;--line:#ffffff18}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:radial-gradient(ellipse at 10% 0%,#34206c 0,transparent 36%),radial-gradient(ellipse at 90% 12%,#073d51 0,transparent 30%),var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Arial,sans-serif;overflow-x:hidden}
-body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;opacity:.18;background-image:linear-gradient(#ffffff08 1px,transparent 1px),linear-gradient(90deg,#ffffff08 1px,transparent 1px);background-size:38px 38px}
-header{position:sticky;top:0;z-index:10;background:#090b18d9;backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
-.nav{max-width:1180px;margin:auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:14px}
-.brand{display:flex;align-items:center;gap:10px;font-weight:950;letter-spacing:1px;font-size:19px}
-.logo{width:40px;height:40px;display:grid;place-items:center;border-radius:13px;background:linear-gradient(135deg,#00e5ff,#8b5cf6 52%,#ff3d9a);box-shadow:0 0 25px #8b5cf655;animation:logoPulse 3s ease-in-out infinite}
-.logo span{font-size:22px;font-weight:1000;color:white}
-.brand em{font-style:normal;background:linear-gradient(90deg,#00e5ff,#b28cff,#ff69b4);color:transparent;background-clip:text}
-.navtag{font-size:12px;color:#b8f8ff;border:1px solid #00e5ff55;border-radius:999px;padding:8px 12px;background:#00e5ff0c}
-.hero{max-width:1180px;margin:auto;padding:64px 20px 32px;text-align:center}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:8px 13px;border:1px solid #ffffff22;border-radius:999px;color:#d4caff;background:#ffffff08;font-size:12px;letter-spacing:1.5px;text-transform:uppercase}
-.pulse{width:8px;height:8px;border-radius:50%;background:#36f5b4;box-shadow:0 0 14px #36f5b4;animation:blink 1.3s infinite}
-h1{font-size:clamp(38px,8vw,78px);line-height:1.02;letter-spacing:-3px;margin:23px 0 14px;font-weight:1000}
-.gradientText{background:linear-gradient(90deg,#00e5ff,#8c7bff,#ff59bd,#ffd166,#00e5ff);background-size:300% 100%;color:transparent;background-clip:text;animation:gradientMove 7s linear infinite}
-.underline{height:4px;width:min(390px,70vw);margin:20px auto;background:linear-gradient(90deg,transparent,#00e5ff,#ff4eb8,#a78bfa,transparent);border-radius:9px;box-shadow:0 0 18px #9a70ff88;animation:lineMove 3s ease-in-out infinite}
-.hero p{max-width:620px;margin:0 auto;color:var(--muted);font-size:15px;line-height:1.8}
-.marquee{overflow:hidden;border-block:1px solid #ffffff13;background:#ffffff05;margin:15px 0 30px}
-.marqueeTrack{display:flex;width:max-content;animation:marquee 25s linear infinite}
-.marquee span{font-size:12px;letter-spacing:2px;font-weight:800;color:#c7d2fe;padding:13px 22px;white-space:nowrap}
-.marquee b{color:#43e8ff}
-main{max-width:1180px;margin:auto;padding:0 20px 65px}
-.tools{display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between;margin:25px 0 24px}
-.searchWrap{position:relative;flex:1 1 280px;max-width:520px;padding:2px;border-radius:17px;background:linear-gradient(110deg,#00e5ff,#8b5cf6,#ff4fb8,#fbbf24,#00e5ff);background-size:300% 100%;animation:gradientMove 6s linear infinite;box-shadow:0 0 24px #8b5cf622}
-.searchWrap:focus-within{box-shadow:0 0 0 3px #8b5cf633,0 0 32px #00e5ff44}
-.searchWrap input{width:100%;border:0;outline:0;border-radius:15px;background:#0e1224;color:white;padding:16px 17px 16px 45px;font:inherit}
-.searchWrap input::placeholder{color:#858eae}
-.searchIcon{position:absolute;left:16px;top:50%;transform:translateY(-50%);color:#58eaff;font-size:19px;pointer-events:none}
-.filters{display:flex;gap:8px;flex-wrap:wrap}
-.filter{cursor:pointer;border:1px solid #ffffff20;color:#c4cbe3;background:#11152a;border-radius:999px;padding:10px 14px;font-weight:750;font-size:12px;transition:.25s}
-.filter:hover,.filter.active{color:#07111d;border-color:transparent;background:linear-gradient(100deg,#00e5ff,#b7ffdc);box-shadow:0 5px 20px #00e5ff22;transform:translateY(-2px)}
-.sectionHead{display:flex;justify-content:space-between;align-items:end;gap:12px;margin:30px 0 17px}
-.sectionHead h2{margin:0;font-size:22px;letter-spacing:-.5px}
-.sectionHead p{margin:5px 0 0;color:var(--muted);font-size:12px}
-.count{font-size:12px;color:#c4b5fd;border:1px solid #a78bfa44;padding:8px 11px;border-radius:999px;background:#a78bfa0d}
-.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px}
-.app{--accent:#00e5ff;position:relative;isolation:isolate;overflow:hidden;border:1px solid #ffffff16;border-radius:22px;padding:19px;background:linear-gradient(145deg,#171b32dd,#0c1021ee);min-width:0;transition:transform .3s,border-color .3s,box-shadow .3s;animation:cardIn .65s both}
-.app:before{content:"";position:absolute;z-index:-1;width:180px;height:180px;border-radius:50%;right:-100px;top:-100px;background:var(--accent);filter:blur(75px);opacity:.13;transition:opacity .3s}
-.app:after{content:"";position:absolute;left:0;top:0;width:100%;height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent);transform:translateX(-100%);transition:transform .6s}
-.app:hover{transform:translateY(-7px) scale(1.015);border-color:color-mix(in srgb,var(--accent) 55%,transparent);box-shadow:0 16px 42px #0006,0 0 25px color-mix(in srgb,var(--accent) 13%,transparent)}
-.app:hover:before{opacity:.28}.app:hover:after{transform:translateX(100%)}
-.appTop{display:flex;align-items:center;justify-content:space-between;gap:8px}
-.appIcon{width:58px;height:58px;border-radius:17px;background:#fff;object-fit:contain;padding:9px;box-shadow:0 5px 25px #0004;transition:transform .35s}
-.app:hover .appIcon{transform:rotate(-6deg) scale(1.08)}
-.platform{font-size:10px;font-weight:800;letter-spacing:.6px;color:var(--accent);border:1px solid color-mix(in srgb,var(--accent) 40%,transparent);border-radius:999px;padding:6px 8px;background:color-mix(in srgb,var(--accent) 8%,transparent)}
-.app h3{font-size:17px;margin:18px 0 7px}
-.app p{font-size:12px;line-height:1.65;color:var(--muted);min-height:40px;margin:0 0 17px}
-.actions{display:flex;gap:8px}
-.btn{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;font-size:12px;font-weight:850;padding:10px 12px;border-radius:11px;transition:.2s}
-.btn.primary{background:var(--accent);color:#07101a;flex:1}
-.btn.primary:hover{filter:brightness(1.12);transform:translateY(-2px)}
-.btn.secondary{border:1px solid #ffffff1f;color:#dce2fa;background:#ffffff07}
-.empty{display:none;text-align:center;color:var(--muted);padding:35px;border:1px dashed #ffffff2a;border-radius:18px}
-footer{text-align:center;border-top:1px solid #ffffff12;padding:26px 15px;color:#7f89a8;font-size:12px}
-footer strong{background:linear-gradient(90deg,#00e5ff,#ff59bd);background-clip:text;color:transparent}
-@keyframes gradientMove{to{background-position:300% 0}}
-@keyframes marquee{to{transform:translateX(-50%)}}
-@keyframes blink{50%{opacity:.3;transform:scale(.7)}}
-@keyframes logoPulse{50%{box-shadow:0 0 35px #ff59bd66;transform:rotate(4deg)}}
-@keyframes lineMove{50%{transform:scaleX(.75);opacity:.65}}
-@keyframes cardIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
-@media(max-width:900px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media(max-width:650px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.app{padding:14px;border-radius:18px}.appIcon{width:50px;height:50px;border-radius:14px}.app h3{font-size:15px;margin-top:14px}.app p{font-size:11px;min-height:54px}.btn{padding:10px 8px;font-size:11px}.hero{padding-top:45px}h1{letter-spacing:-1.8px}.nav{padding:11px 15px}.navtag{font-size:10px}}
-@media(max-width:380px){.grid{grid-template-columns:1fr}.app p{min-height:0}}
-@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition:none!important}}
-</style>
-</head>
-<body>
-<header><div class="nav"><div class="brand"><div class="logo"><span>M</span></div><div>MURUQ.<em>TECH</em></div></div><div class="navtag">✦ DIGITAL APP HUB</div></div></header>
-<section class="hero">
-<div class="eyebrow"><i class="pulse"></i> YOUR DIGITAL WORLD</div>
-<h1>Discover <span class="gradientText">Something Better.</span></h1>
-<div class="underline"></div>
-<p>Explore your favorite apps and tools in one clean, colorful place. Search, discover, and open official download pages.</p>
-</section>
-<div class="marquee" aria-label="MURUQ TECH moving banner"><div class="marqueeTrack"><span>✦ <b>MURUQ.TECH</b> — YOUR APPS, YOUR WORLD</span><span>ANDROID APPS ✦ PC SOFTWARE ✦ OFFICIAL LINKS ✦</span><span>✦ <b>MURUQ.TECH</b> — YOUR APPS, YOUR WORLD</span><span>ANDROID APPS ✦ PC SOFTWARE ✦ OFFICIAL LINKS ✦</span></div></div>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0b0b18"><meta name="description" content="MURUQ.TECH — apps, software, Windows resources and digital products.">
+<title>MURUQ.TECH — Your Digital World</title><link rel="stylesheet" href="style.css">
+</head><body>
+<header class="topbar"><a class="brand" href="#"><span class="logo">M</span><span><b>MURUQ.TECH</b><small>YOUR DIGITAL WORLD</small></span></a>
+<button class="menu-btn" id="menuBtn" aria-label="Open navigation menu" aria-expanded="false">☰</button><nav id="nav"><a href="#home">Home</a><a href="#apps">Apps</a><a href="#software">Software</a><a href="#windows">Windows</a><a href="#store">Store</a><a href="#blogs">Blogs</a><a href="#about">About</a><a href="#contact">Contact us</a><a href="#privacy">Privacy policy</a></nav></header>
 <main>
-<div class="tools">
-<div class="searchWrap"><span class="searchIcon">⌕</span><input id="search" type="search" placeholder="Search apps by name..." autocomplete="off" aria-label="Search apps"></div>
-<div class="filters" id="filters"><button class="filter active" data-filter="all">All Apps</button><button class="filter" data-filter="android">Android</button><button class="filter" data-filter="social">Social</button><button class="filter" data-filter="media">Media</button><button class="filter" data-filter="pc">PC Tools</button></div>
+<section class="hero" id="home"><div class="hero-copy"><span class="eyebrow">● DIGITAL APP HUB — MADE FOR YOU</span><h1>Discover your<br><span>next favorite tool.</span></h1><p>Find useful apps, trusted software, Windows resources and digital products — all in one place.</p><div class="hero-actions"><a class="btn primary" href="#apps">Explore apps ↓</a><a class="btn" href="#store">Visit store ↗</a></div></div><div class="orbit" aria-hidden="true"><div class="orbit-ring"></div><span>📱</span><span>🎮</span><span>🤖</span><span>✨</span></div></section>
+<section class="stats"><div><b>Curated</b><small>Useful resources</small></div><div><b>Free + Paid</b><small>Clear pricing labels</small></div><div><b>24/7</b><small>Browse anytime</small></div></section>
+<section class="section" id="apps"><div class="section-head"><div><span class="eyebrow">FIND YOUR TOOLS</span><h2>Apps & Games ✦</h2><p>Search and filter trusted app links.</p></div><span class="count" id="appCount"></span></div>
+<div class="searchbar"><span>⌕</span><input id="search" type="search" placeholder="Search apps, software, games..." aria-label="Search catalog"></div>
+<div class="filters" id="filters"><button class="filter active" data-category="All">All</button><button class="filter" data-category="Social">Social</button><button class="filter" data-category="Media">Media</button><button class="filter" data-category="Tools">Tools</button><button class="filter" data-category="Games">Games</button><button class="filter" data-category="AI">AI</button></div>
+<div class="cards" id="appCards"></div><p class="empty hidden" id="empty">No matching items. Try another search.</p></section>
+<section class="section" id="software"><div class="section-head"><div><span class="eyebrow">PC ESSENTIALS</span><h2>Software library</h2><p>Use official download pages whenever possible.</p></div></div><div class="cards" id="softwareCards"></div></section>
+<section class="section windows" id="windows"><div><span class="eyebrow">WINDOWS RESOURCES</span><h2>Windows downloads</h2><p>Download Windows installation media and updates directly from Microsoft. Check system requirements and back up your files before installing.</p><a class="btn primary" href="https://www.microsoft.com/software-download/windows11" target="_blank" rel="noopener noreferrer">Windows 11 — Microsoft ↗</a> <a class="btn" href="https://www.microsoft.com/software-download/windows10" target="_blank" rel="noopener noreferrer">Windows 10 — Microsoft ↗</a><p class="note">Windows licensing and activation may require a valid license. MURUQ.TECH does not host modified Windows images or unauthorized keys.</p></div><div class="windows-icon">▦</div></section>
+<section class="section" id="store"><div class="section-head"><div><span class="eyebrow">DIGITAL MARKETPLACE</span><h2>MURUQ Store 🛍</h2><p>Starter catalog for products you sell. Replace sample items with your real stock.</p></div></div><div class="cards" id="storeCards"></div><p class="note">This starter version does not collect payments or customer details. Contact/order buttons use your configured contact link. Add a trusted payment provider and backend before accepting online payments.</p></section>
+<section class="section" id="blogs"><div class="section-head"><div><span class="eyebrow">LATEST UPDATES</span><h2>MURUQ Blogs ✦</h2><p>Guides, software tips and technology news will appear here.</p></div></div><div class="cards"><article class="card"><div class="app-icon">💡</div><span class="tag">Getting started</span><h3>How to download software safely</h3><p>Use the official publisher website and check the download source before installing.</p><a class="btn" href="#windows">Read guide ↗</a></article><article class="card"><div class="app-icon">🪟</div><span class="tag">Windows</span><h3>Prepare your PC before installing Windows</h3><p>Back up important files and check the official system requirements first.</p><a class="btn" href="#windows">Read guide ↗</a></article></div></section>
+<section class="section profile-section" id="profile">
+<div class="profile-card">
+  <span class="eyebrow">MEET THE CREATOR</span>
+  <div class="profile-preview" id="profilePreview"><span class="profile-placeholder">👤</span></div>
+  <h2>Welcome to MURUQ.TECH</h2>
+  <p class="profile-domain">WWW.MURUQ.TECH</p>
+  <p class="profile-caption">Your Digital World</p>
+  <label class="btn primary upload-label" for="profileUpload">📷 Choose your photo</label>
+  <input id="profileUpload" class="file-input" type="file" accept="image/*" aria-label="Choose profile photo">
+  <p class="note">Dooro sawirka telefoonkaaga. Sawirka aad doorato wuxuu marka hore ka muuqanayaa browser-kan; si dadka oo dhan u arkaan, ku dar sawirka fayl ahaan GitHub-ka.</p>
 </div>
-<div class="sectionHead"><div><h2>Explore Apps <span style="color:#53e9ff">✦</span></h2><p>Tap an app to visit its official website</p></div><div class="count" id="count">12 APPS</div></div>
-<div class="grid" id="grid">
-<article class="app" data-name="WhatsApp" data-cats="android social" style="--accent:#25D366"><div class="appTop"><img class="appIcon" src="https://www.google.com/s2/favicons?domain=whatsapp.com&sz=128" alt="WhatsApp logo"><span class="platform">ANDROID</span></div><h3>WhatsApp</h3><p>Messages and calls with friends and family.</p><div class="actions"><a class="btn primary" href="https://www.whatsapp.com/android/" target="_blank" rel="noopener">Official app ↗</a></div></article>
-<article class="app" data-name="Telegram" data-cats="android social" style="--accent:#2AABEE"><div class="appTop"><img class="appIcon" src="https://www.google.com/s2/favicons?domain=telegram.org&sz=128" alt="Telegram logo"><span class="platform">ANDROID</span></div><h3>Telegram</h3><p>Fast messaging, channels, and communities.</p><div class="actions"><a class="btn primary" href="https://telegram.org/android" target="_blank" rel="noopener">Official app ↗</a></div></article>
-<article class="app" data-name="Instagram" data-cats="android social" style="--accent:#F04A9B"><div class="appTop"><img class="appIcon" src="https://www.google.com/s2/favicons?domain=instagram.com&sz=128" alt="Instagram logo"><span class="platform">ANDROID</span></div><h3>Instagram</h3><p>Share photos, reels, stories, and messages.</p><div class="actions"><a class="btn primary" href="https://www.instagram.com/" target="_blank" rel="noopener">Official site ↗</a></div></article>
-<article class="app" data-name="TikTok" data-cats="android social media" style="--accent:#25F4EE"><div class="appTop"><img class="appIcon" src="https://www.google.com/s2/favicons?domain=tiktok.com&sz=128" alt="TikTok logo"><span class="platform">ANDROID</span></div><h3>TikTok</h3><p>Discover short videos and creative trends.</p><div class="actions"><a class="btn primary" href="https://www.tiktok.com/" target="_blank" rel="noopener">Official site ↗</a></div></article>
-<article class="app" data-name="Facebook" data-cats="android social" style="--accent:#1877F2"><div class="appTop"><img class="appIcon" src="https://www.google.com/s2/favicons?domain=facebook.com&sz=128" alt="Facebook logo"><span class="platform">ANDROID</span></div><h3>Facebook</h3><p>Connect with people, pages, and communities.</p><div class="actions"><a class="btn primary" href="https://www.facebook.com/" target="_blank" rel="noopener">Official site ↗</a></div></article>
-<article class="app" data-name="YouTube" data-cats="android media" style="--accent:#FF4545"><div class="appTop"><img class="appIcon" src="https://www.google.com/s2/favicons?domain=youtube.com&sz=128" alt="YouTube logo"><span class="platform">MEDIA</span></div><h3>YouTube</h3><p>Watch videos, music, learning, and more.</p><div class="actions"><a class="btn primary" href="https://www.youtube.com/" target="_blank" rel="noopener">Official site ↗</a></div></article>
-<article class="app" data-name="Spotify" data-cats="android media" style="--accent:#1ED760"><div class="appTop"><img class="appIcon" src="https://www.google.com/s2/favicons?domain=spotify.com&sz=128" alt="Spotify logo"><span class="platform">MEDIA</span></div><h3>Spotify</h3><p>Listen to music, podcasts, and playlists.</p><div class="actions"><a class="btn primary" href="https://www.spotify.com/download/android/" target="_blank" rel="noopener">Official app ↗</a></div></article>
-<article class="app" data-name="Snapchat" data-cats="android social" style="--accent:#FFEB3B"><div class="appTop"><img class="appIcon" src="https://www.google.com/s2/favicons?domain=snapchat.com&sz=128" alt="Snapchat logo"><span class="platform">SOCIAL</span></div><h3>Snapchat</h3><p>Share snaps and stay connected with friends.</p><div class="actions"><a class="btn primary" href="https://www.snapchat.com/" target="_blank" rel="noopener">Official site ↗</a></div></article>
-<article class="app" data-name="Discord" data-cats="android social" style="--accent:#5865F2"><div class="appTop"><img class="appIcon" src="https://www.google.com/s2/favicons?domain=discord.com&sz=128" alt="Discord logo"><span class="platform">SOCIAL</span></div><h3>Discord</h3><p>Join communities and talk with your team.</p><div class="actions"><a class="btn primary" href="https://discord.com/download" target="_blank" rel="noopener">Official app ↗</a></div></article>
-<article class="app" data-name="CapCut" data-cats="android media" style="--accent:#D7E4FF"><div class="appTop"><img class="appIcon" src="https://www.google.com/s2/favicons?domain=capcut.com&sz=128" alt="CapCut logo"><span class="platform">CREATOR</span></div><h3>CapCut</h3><p>Edit videos with effects, captions, and tools.</p><div class="actions"><a class="btn primary" href="https://www.capcut.com/" target="_blank" rel="noopener">Official site ↗</a></div></article>
-<article class="app" data-name="Google Chrome" data-cats="android pc" style="--accent:#FDBA35"><div class="appTop"><img class="appIcon" src="https://www.google.com/s2/favicons?domain=google.com/chrome&sz=128" alt="Google Chrome logo"><span class="platform">ANDROID / PC</span></div><h3>Google Chrome</h3><p>A fast browser for phones and computers.</p><div class="actions"><a class="btn primary" href="https://www.google.com/chrome/" target="_blank" rel="noopener">Official site ↗</a></div></article>
-<article class="app" data-name="Visual Studio Code" data-cats="pc" style="--accent:#38BDF8"><div class="appTop"><img class="appIcon" src="https://www.google.com/s2/favicons?domain=code.visualstudio.com&sz=128" alt="Visual Studio Code logo"><span class="platform">PC TOOL</span></div><h3>VS Code</h3><p>A powerful code editor for developers.</p><div class="actions"><a class="btn primary" href="https://code.visualstudio.com/" target="_blank" rel="noopener">Official download ↗</a></div></article>
-</div>
-<div class="empty" id="empty">No apps found. Try another search.</div>
-</main>
-<footer>Made for curious minds · <strong>MURUQ.TECH</strong> · App logos are loaded from website favicons.</footer>
-<script>
-const search=document.getElementById('search'),cards=[...document.querySelectorAll('.app')],buttons=[...document.querySelectorAll('.filter')],count=document.getElementById('count'),empty=document.getElementById('empty');let active='all';
-function filterApps(){const q=search.value.trim().toLowerCase();let shown=0;cards.forEach((card,i)=>{const matchesText=(card.dataset.name+' '+card.innerText).toLowerCase().includes(q);const cats=card.dataset.cats.split(/\s+/);const matchesCat=active==='all'||cats.includes(active);const yes=matchesText&&matchesCat;card.style.display=yes?'':'none';if(yes){shown++;card.style.animation='none';void card.offsetWidth;card.style.animation=`cardIn .45s ${Math.min(i*.035,.35)}s both`;}});count.textContent=shown+' APP'+(shown===1?'':'S');empty.style.display=shown?'none':'block';}
-search.addEventListener('input',filterApps);buttons.forEach(btn=>btn.addEventListener('click',()=>{buttons.forEach(b=>b.classList.remove('active'));btn.classList.add('active');active=btn.dataset.filter;filterApps()}));
-document.querySelectorAll('.appIcon').forEach(img=>img.addEventListener('error',()=>{img.style.display='none';const box=img.closest('.appTop');if(box&&!box.querySelector('.iconFallback')){const f=document.createElement('div');f.className='iconFallback';f.textContent=img.alt.replace(' logo','').slice(0,2).toUpperCase();f.style.cssText='width:58px;height:58px;border-radius:17px;display:grid;place-items:center;background:linear-gradient(135deg,var(--accent),#171b32);font-size:18px;font-weight:900;color:white';box.prepend(f);}}));
-</script>
-</body>
-  </html>
+</section>
+<section class="section contact" id="contact"><span class="eyebrow">GET IN TOUCH</span><h2>Contact MURUQ.TECH</h2><p>For questions, software listing requests or business inquiries, contact the site owner.</p><a class="btn primary" href="mailto:YOUR-EMAIL@example.com?subject=MURUQ.TECH%20Inquiry">Email MURUQ.TECH ↗</a><p class="note">Before publishing, replace YOUR-EMAIL@example.com with your real email address.</p></section>
+<section class="section privacy" id="privacy"><span class="eyebrow">YOUR PRIVACY</span><h2>Privacy policy</h2><p>This starter website does not create user accounts, process payments, or intentionally collect personal information. The profile-photo picker previews the image locally in your browser and does not upload it.</p><p>Links to third-party websites are governed by those websites’ own privacy policies. If you later add analytics, forms, accounts, payments, or file uploads, update this policy to explain what data is collected, why it is used, and how visitors can contact you about it.</p><p class="note">This is a starter notice, not legal advice. Review and adapt it before public launch.</p></section>
+<section class="section about" id="about"><span class="eyebrow">ABOUT MURUQ.TECH</span><h2>Welcome to MURUQ.TECH</h2><h3 class="site-welcome">WWW.MURUQ.TECH</h3><p>MURUQ.TECH is an independent directory for apps, software, Windows resources and digital products. We aim to point visitors to trustworthy sources.</p><div class="about-grid"><div><b>✓ Official links</b><small>Prefer the publisher’s download page.</small></div><div><b>✓ Clear categories</b><small>Find tools without the clutter.</small></div><div><b>✓ Honest listings</b><small>Clearly label free and paid products.</small></div></div></section>
+</main><footer><a class="brand" href="#"><span class="logo">M</span><span><b>MURUQ.TECH</b><small>YOUR DIGITAL WORLD</small></span></a><p>© <span id="year"></span> MURUQ.TECH. Independent project; not affiliated with listed brands.</p><a href="mailto:hello@example.com">Contact site owner</a></footer>
+<script src="script.js"></script></body></html>
