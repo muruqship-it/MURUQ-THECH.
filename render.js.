@@ -1,221 +1,73 @@
-
+/* MURUQ.THECH catalog data and rendering */
 window.MURUQ = window.MURUQ || {};
-
 window.MURUQ.apps = [
-  {
-    name: "Google Chrome",
-    platform: "android",
-    category: "tools",
-    symbol: "🌐",
-    color: "#4285f4",
-    description: "Fast web browsing on your Android phone.",
-    device: "Android",
-    url: "https://play.google.com/store/apps/details?id=com.android.chrome"
-  },
-  {
-    name: "Firefox",
-    platform: "android",
-    category: "tools",
-    symbol: "🦊",
-    color: "#e87524",
-    description: "A browser with privacy tools.",
-    device: "Android",
-    url: "https://www.mozilla.org/firefox/browsers/mobile/android/"
-  },
-  {
-    name: "Telegram",
-    platform: "android",
-    category: "tools",
-    symbol: "➤",
-    color: "#229ed9",
-    description: "Messaging and file sharing.",
-    device: "Android",
-    url: "https://telegram.org/android"
-  },
-  {
-    name: "VLC for Android",
-    platform: "android",
-    category: "media",
-    symbol: "▶",
-    color: "#e76b26",
-    description: "Play video and audio files.",
-    device: "Android",
-    url: "https://www.videolan.org/vlc/download-android.html"
-  },
-  {
-    name: "WhatsApp",
-    platform: "android",
-    category: "tools",
-    symbol: "☎",
-    color: "#20b96a",
-    description: "Messages and calls.",
-    device: "Android",
-    url: "https://www.whatsapp.com/android"
-  },
-  {
-    name: "CapCut",
-    platform: "android",
-    category: "media",
-    symbol: "✂",
-    color: "#343b4b",
-    description: "Video editing tools.",
-    device: "Android",
-    url: "https://www.capcut.com/"
-  },
-  {
-    name: "Krita",
-    platform: "pc",
-    category: "media",
-    symbol: "K",
-    color: "#269e91",
-    description: "Digital painting and illustration.",
-    device: "Windows / PC",
-    url: "https://krita.org/en/download/"
-  },
-  {
-    name: "VLC Media Player",
-    platform: "pc",
-    category: "media",
-    symbol: "▶",
-    color: "#e76b26",
-    description: "A free media player for computers.",
-    device: "Windows / PC",
-    url: "https://www.videolan.org/vlc/"
-  },
-  {
-    name: "7-Zip",
-    platform: "pc",
-    category: "tools",
-    symbol: "7z",
-    color: "#337ac3",
-    description: "Compress and extract files.",
-    device: "Windows / PC",
-    url: "https://www.7-zip.org/"
-  },
-  {
-    name: "GIMP",
-    platform: "pc",
-    category: "media",
-    symbol: "G",
-    color: "#9a743a",
-    description: "Image editing software.",
-    device: "Windows / PC",
-    url: "https://www.gimp.org/downloads/"
-  },
-  {
-    name: "LibreOffice",
-    platform: "pc",
-    category: "tools",
-    symbol: "▤",
-    color: "#2672b5",
-    description: "Documents, spreadsheets and presentations.",
-    device: "Windows / PC",
-    url: "https://www.libreoffice.org/download/download-libreoffice/"
-  },
-  {
-    name: "Godot Engine",
-    platform: "pc",
-    category: "games",
-    symbol: "◆",
-    color: "#347ac2",
-    description: "Create your own 2D and 3D games.",
-    device: "Windows / PC",
-    url: "https://godotengine.org/download/"
-  },
-  {
-    name: "Blender",
-    platform: "pc",
-    category: "media",
-    symbol: "◉",
-    color: "#bd6b2a",
-    description: "3D modelling and animation.",
-    device: "Windows / PC",
-    url: "https://www.blender.org/download/"
-  },
-  {
-    name: "Audacity",
-    platform: "pc",
-    category: "media",
-    symbol: "♫",
-    color: "#366bc1",
-    description: "Record and edit audio.",
-    device: "Windows / PC",
-    url: "https://www.audacityteam.org/download/"
-  },
-  {
-    name: "Epic Games Store",
-    platform: "pc",
-    category: "games",
-    symbol: "E",
-    color: "#303642",
-    description: "Discover PC games.",
-    device: "Windows / PC",
-    url: "https://store.epicgames.com/"
-  }
+  {name:'WhatsApp Messenger',publisher:'WhatsApp',category:'android',tags:'chat messaging calls',mark:'WA',colors:['#31d477','#16854a'],description:'Message friends and family and make voice or video calls.',url:'https://www.whatsapp.com/android/'},
+  {name:'Telegram',publisher:'Telegram',category:'android',tags:'chat messaging channels',mark:'TG',colors:['#49b9ed','#1978b9'],description:'Fast messaging with channels, groups and file sharing.',url:'https://telegram.org/android'},
+  {name:'Firefox Browser',publisher:'Mozilla',category:'android',tags:'browser privacy internet',mark:'F',colors:['#ff9b45','#df4776'],description:'Browse with tracking protection and useful privacy features.',url:'https://www.mozilla.org/firefox/browsers/mobile/android/'},
+  {name:'Google Chrome',publisher:'Google',category:'android',tags:'browser internet web',mark:'C',colors:['#5bb96d','#3378db'],description:'Browse the web and sync your Google account across devices.',url:'https://play.google.com/store/apps/details?id=com.android.chrome'},
+  {name:'Google Maps',publisher:'Google',category:'android',tags:'maps navigation directions',mark:'MAP',colors:['#5bc99c','#3677df'],description:'Find places, explore locations and get directions.',url:'https://play.google.com/store/apps/details?id=com.google.android.apps.maps'},
+  {name:'Files by Google',publisher:'Google',category:'android',tags:'files storage sharing cleanup',mark:'FG',colors:['#54c7a1','#3676d9'],description:'Manage files, free storage space and share files offline.',url:'https://play.google.com/store/apps/details?id=com.google.android.apps.nbu.files'},
+  {name:'Signal',publisher:'Signal Foundation',category:'android',tags:'private chat messaging calls',mark:'S',colors:['#6da0ff','#3157b8'],description:'Private messaging and calls with end-to-end encryption.',url:'https://signal.org/download/android/'},
+  {name:'Snapseed',publisher:'Google',category:'media',tags:'photo picture editing filters',mark:'S',colors:['#d7e3ec','#607a9c'],description:'Edit photos with detailed adjustments and creative filters.',url:'https://play.google.com/store/apps/details?id=com.niksoftware.snapseed'},
+  {name:'VLC for Android',publisher:'VideoLAN',category:'media',tags:'video audio player music',mark:'VLC',colors:['#ffbc48','#e87520'],description:'Play many popular video and audio formats on your phone.',url:'https://www.videolan.org/vlc/download-android.html'},
+  {name:'CapCut',publisher:'ByteDance',category:'media',tags:'video editor reels short clips',mark:'CC',colors:['#dce5ee','#68748d'],description:'Video editing tools for clips and social content; availability varies by region.',url:'https://www.capcut.com/'},
+  {name:'Spotify',publisher:'Spotify',category:'media',tags:'music audio podcasts',mark:'SP',colors:['#5be18a','#16884b'],description:'Discover music and podcasts; free listening may include ads and limits.',url:'https://www.spotify.com/download/'},
+  {name:'VLC Media Player',publisher:'VideoLAN',category:'media',tags:'pc video audio player',mark:'VLC',colors:['#ffbc48','#e87520'],description:'Free, open-source media player for many audio and video formats.',url:'https://www.videolan.org/vlc/'},
+  {name:'Audacity',publisher:'Audacity Team',category:'media',tags:'audio sound recording editing',mark:'A',colors:['#73c7ee','#3d68ba'],description:'Record and edit audio with a free, open-source editor.',url:'https://www.audacityteam.org/download/'},
+  {name:'OBS Studio',publisher:'OBS Project',category:'media',tags:'screen recording livestream video',mark:'OBS',colors:['#a8b4c9','#47536c'],description:'Free software for live streaming and screen recording.',url:'https://obsproject.com/download'},
+  {name:'7-Zip',publisher:'Igor Pavlov',category:'pc',tags:'zip archive compress extract files windows',mark:'7Z',colors:['#72c9ab','#26745c'],description:'Free file archiver for creating and opening compressed files.',url:'https://www.7-zip.org/'},
+  {name:'GIMP',publisher:'The GIMP Team',category:'pc',tags:'photo image editor graphics',mark:'G',colors:['#9aa9c4','#4c607e'],description:'Free image editor for photo retouching and graphic composition.',url:'https://www.gimp.org/downloads/'},
+  {name:'Blender',publisher:'Blender Foundation',category:'pc',tags:'3d modeling animation render design',mark:'B',colors:['#ffb45e','#d36521'],description:'Free 3D creation software for modeling, animation and rendering.',url:'https://www.blender.org/download/'},
+  {name:'LibreOffice',publisher:'The Document Foundation',category:'pc',tags:'office documents word spreadsheet presentation',mark:'LO',colors:['#6e9fdb','#405aa2'],description:'Free office suite for documents, spreadsheets and presentations.',url:'https://www.libreoffice.org/download/download-libreoffice/'},
+  {name:'Krita',publisher:'Krita Foundation',category:'pc',tags:'drawing painting illustration art',mark:'K',colors:['#7db9c9','#405e9b'],description:'Free digital painting software for illustration and concept art.',url:'https://krita.org/en/download/'},
+  {name:'Inkscape',publisher:'Inkscape Project',category:'pc',tags:'vector graphics logo illustration design',mark:'I',colors:['#c4cbd8','#5b6d8c'],description:'Free vector graphics editor for logos, icons and illustrations.',url:'https://inkscape.org/release/'},
+  {name:'HandBrake',publisher:'HandBrake Team',category:'media',tags:'video convert transcoder',mark:'H',colors:['#ed9562','#b54d3d'],description:'Free video transcoder for converting video files.',url:'https://handbrake.fr/downloads.php'},
+  {name:'Godot Engine',publisher:'Godot Foundation',category:'games',tags:'game development engine 2d 3d create',mark:'G',colors:['#73b5ff','#315fc1'],description:'Free, open-source engine for building 2D and 3D games.',url:'https://godotengine.org/download/'},
+  {name:'Steam',publisher:'Valve',category:'games',tags:'pc games store gaming',mark:'S',colors:['#83b5d7','#243a59'],description:'Discover and manage PC games from the official Steam store.',url:'https://store.steampowered.com/about/'},
+  {name:'Epic Games Store',publisher:'Epic Games',category:'games',tags:'pc games store free games',mark:'EG',colors:['#8992a5','#343b4b'],description:'Browse PC games and check current free-game offers.',url:'https://store.epicgames.com/'},
+  {name:'itch.io',publisher:'itch.io',category:'games',tags:'indie games free games browser',mark:'it',colors:['#ff8585','#c63f59'],description:'Discover indie games, including many free titles.',url:'https://itch.io/games/free'},
+  {name:'ShareX',publisher:'ShareX Team',category:'tools',tags:'screenshots capture screen recording windows',mark:'SX',colors:['#61cabe','#277d88'],description:'Capture screenshots and share screen captures on Windows.',url:'https://getsharex.com/'},
+  {name:'Bitwarden',publisher:'Bitwarden',category:'tools',tags:'password manager security vault',mark:'BW',colors:['#4d88ff','#2b50b6'],description:'Store and manage passwords with an open-source password manager.',url:'https://bitwarden.com/download/'},
+  {name:'KeePassXC',publisher:'KeePassXC Team',category:'tools',tags:'password manager offline security',mark:'KX',colors:['#8bbca9','#386d5e'],description:'Free, open-source password manager for desktop computers.',url:'https://keepassxc.org/download/'},
+  {name:'Mozilla Thunderbird',publisher:'Mozilla',category:'tools',tags:'email mail calendar',mark:'T',colors:['#969bfa','#4b5aab'],description:'Free email application for managing email accounts.',url:'https://www.thunderbird.net/'},
+  {name:'Python',publisher:'Python Software Foundation',category:'tools',tags:'programming coding language learning',mark:'Py',colors:['#f1cd60','#3879a9'],description:'Download Python and find official programming documentation.',url:'https://www.python.org/downloads/'},
+  {name:'Visual Studio Code',publisher:'Microsoft',category:'tools',tags:'code editor programming development',mark:'VS',colors:['#5dbbec','#2862ac'],description:'A code editor with extensions for many programming languages.',url:'https://code.visualstudio.com/download'},
+  {name:'7-Zip ZS',publisher:'Official 7-Zip project',category:'tools',tags:'archive zip file compression',mark:'ZIP',colors:['#74c9ab','#26745c'],description:'Find the official 7-Zip download and file compression options.',url:'https://www.7-zip.org/'},
+  {name:'Brave Browser',publisher:'Brave Software',category:'android',tags:'browser privacy internet',mark:'B',colors:['#ff965f','#c83d3d'],description:'A browser with built-in tracker blocking and privacy features.',url:'https://brave.com/download/'},
+  {name:'Inkscape',publisher:'Inkscape Project',category:'tools',tags:'vector drawing design',mark:'IN',colors:['#c3cbd8','#596a8b'],description:'Create scalable vector artwork with this free design application.',url:'https://inkscape.org/release/'},
+  {name:'PeaZip',publisher:'PeaZip Team',category:'tools',tags:'archive zip compress extract',mark:'PZ',colors:['#8dc8ed','#476bc1'],description:'Free file archiver for managing many archive formats.',url:'https://peazip.github.io/'},
+  {name:'FileZilla Client',publisher:'FileZilla Project',category:'tools',tags:'ftp files transfer web server',mark:'FZ',colors:['#a9c6ee','#5d7cbd'],description:'Transfer files between your computer and remote servers.',url:'https://filezilla-project.org/download.php?type=client'}
 ];
 
-window.MURUQ.escapeHTML = function(value) {
-  return String(value).replace(/[&<>"']/g, c => ({
-    "&": "&amp;",
-    "<": "&lt;",
-    ">": "&gt;",
-    '"': "&quot;",
-    "'": "&#039;"
-  })[c]);
-};
-
-window.MURUQ.renderCatalog = function() {
-  const grid = document.getElementById("appGrid");
-  const count = document.getElementById("count");
-  const empty = document.getElementById("emptyState");
-
-  if (!grid) return;
-
-  const term = (window.MURUQ.searchTerm || "").toLowerCase();
-  const filter = window.MURUQ.activeFilter || "all";
-  const safe = window.MURUQ.escapeHTML;
-
-  const results = window.MURUQ.apps.filter(app => {
-    const matchesFilter =
-      filter === "all" ||
-      app.platform === filter ||
-      app.category === filter;
-
-    const text =
-      `${app.name} ${app.description} ${app.platform} ${app.category} ${app.device}`
-      .toLowerCase();
-
-    return matchesFilter && text.includes(term);
+(function(){
+  const categoryNames={android:'Android',games:'Games',pc:'PC Software',media:'Media',tools:'Tools'};
+  function make(tag,className,text){const el=document.createElement(tag);if(className)el.className=className;if(text!==undefined)el.textContent=text;return el;}
+  window.MURUQ.renderCatalog=function(){
+    const grid=document.getElementById('appGrid'),count=document.getElementById('count'),empty=document.getElementById('emptyState');
+    if(!grid||!count||!empty)return;
+    const term=(window.MURUQ.searchTerm||'').trim().toLowerCase(),filter=window.MURUQ.activeFilter||'all';
+    const found=window.MURUQ.apps.filter(app=>{
+      const categoryOK=filter==='all'||app.category===filter;
+      const text=[app.name,app.publisher,app.category,app.tags,app.description].join(' ').toLowerCase();
+      return categoryOK&&(!term||text.includes(term));
+    });
+    grid.replaceChildren();
+    found.forEach(app=>{
+      const card=make('article','app-card');
+      const head=make('div','card-head');
+      const icon=make('div','app-icon',app.mark);icon.style.setProperty('--icon-a',app.colors[0]);icon.style.setProperty('--icon-b',app.colors[1]);
+      const info=make('div','app-info');info.append(make('h3','',app.name),make('div','publisher',app.publisher));
+      head.append(icon,info,make('span','free-badge','FREE'));
+      const description=make('p','app-description',app.description);
+      const foot=make('div','card-foot');foot.append(make('span','category-name',categoryNames[app.category]||app.category));
+      const link=make('a','download-link','Official download ↗');link.href=app.url;link.target='_blank';link.rel='noopener noreferrer';link.setAttribute('aria-label','Open official download page for '+app.name);
+      foot.append(link);card.append(head,description,foot);grid.append(card);
+    });
+    count.textContent=found.length+' '+(found.length===1?'app':'apps')+' found';
+    grid.hidden=found.length===0;empty.hidden=found.length!==0;
+  };
+  document.addEventListener('DOMContentLoaded',()=>{
+    const year=document.getElementById('year');if(year)year.textContent=new Date().getFullYear();
+    window.MURUQ.renderCatalog();
   });
-
-  grid.innerHTML = results.map(app => `
-    <article class="app-card">
-      <div class="card-head">
-        <div class="app-logo" style="--logo:${safe(app.color)}">
-          ${safe(app.symbol)}
-        </div>
-        <span class="tag">
-          ${app.platform === "android" ? "ANDROID" : "PC SOFTWARE"}
-        </span>
-      </div>
-      <h3>${safe(app.name)}</h3>
-      <p>${safe(app.description)}</p>
-      <div class="meta">
-        <span>${safe(app.device)}</span>
-        <span>${safe(app.category.toUpperCase())}</span>
-      </div>
-      <a class="download" href="${safe(app.url)}"
-         target="_blank" rel="noopener noreferrer">
-        Official download ↗
-      </a>
-    </article>
-  `).join("");
-
-  if (count) count.textContent = results.length + " items";
-  if (empty) empty.hidden = results.length > 0;
-  grid.hidden = results.length === 0;
-};
-
-document.addEventListener("DOMContentLoaded", () => {
-  window.MURUQ.renderCatalog();
-});
+})();
