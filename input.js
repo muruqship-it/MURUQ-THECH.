@@ -1,73 +1,52 @@
 
-(function () {
-  function setupInputs() {
-    const searchInput = document.getElementById("searchInput");
-    const clearSearch = document.getElementById("clearSearch");
-    const showAll = document.getElementById("showAll");
-    const filters = document.querySelectorAll("[data-filter]");
+window.MURUQ = window.MURUQ || {};
 
-    function applyFilter(category) {
-      if (!window.MURUQ) return;
+window.MURUQ.searchTerm = "";
+window.MURUQ.activeFilter = "all";
 
-      window.MURUQ.activeFilter = category;
+document.addEventListener("DOMContentLoaded", () => {
+  const searchInput = document.getElementById("searchInput");
+  const clearButton = document.getElementById("clearSearch");
+  const filterButtons = document.querySelectorAll(".filter");
+  const year = document.getElementById("year");
 
-      filters.forEach(function (button) {
-        const active = button.dataset.filter === category;
-        button.classList.toggle("active", active);
-        button.setAttribute("aria-pressed", String(active));
+  if (year) {
+    year.textContent = new Date().getFullYear();
+  }
+
+  if (searchInput) {
+    searchInput.addEventListener("input", () => {
+      window.MURUQ.searchTerm = searchInput.value.trim().toLowerCase();
+
+      if (typeof window.MURUQ.renderCatalog === "function") {
+        window.MURUQ.renderCatalog();
+      }
+    });
+  }
+
+  if (clearButton && searchInput) {
+    clearButton.addEventListener("click", () => {
+      searchInput.value = "";
+      window.MURUQ.searchTerm = "";
+      searchInput.focus();
+
+      if (typeof window.MURUQ.renderCatalog === "function") {
+        window.MURUQ.renderCatalog();
+      }
+    });
+  }
+
+  filterButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      window.MURUQ.activeFilter = button.dataset.filter || "all";
+
+      filterButtons.forEach(item => {
+        item.classList.toggle("active", item === button);
       });
 
       if (typeof window.MURUQ.renderCatalog === "function") {
         window.MURUQ.renderCatalog();
       }
-    }
-
-    if (searchInput) {
-      searchInput.addEventListener("input", function () {
-        if (!window.MURUQ) return;
-        window.MURUQ.searchTerm = searchInput.value.trim();
-        window.MURUQ.renderCatalog();
-      });
-    }
-
-    if (clearSearch) {
-      clearSearch.addEventListener("click", function () {
-        if (searchInput) {
-          searchInput.value = "";
-          searchInput.focus();
-        }
-
-        if (window.MURUQ) {
-          window.MURUQ.searchTerm = "";
-          window.MURUQ.renderCatalog();
-        }
-      });
-    }
-
-    filters.forEach(function (button) {
-      button.addEventListener("click", function () {
-        applyFilter(button.dataset.filter);
-      });
     });
-
-    if (showAll) {
-      showAll.addEventListener("click", function () {
-        if (searchInput) searchInput.value = "";
-        if (window.MURUQ) window.MURUQ.searchTerm = "";
-        applyFilter("all");
-      });
-    }
-
-    document.querySelectorAll("[data-jump-filter]").forEach(function (link) {
-      link.addEventListener("click", function () {
-        applyFilter(link.dataset.jumpFilter);
-      });
-    });
-  }
-
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", setupInputs);
-  } else {
-    setupInputs();
-  }
-})();
+  });
+});
