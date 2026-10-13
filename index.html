@@ -1,110 +1,176 @@
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#0b0b18">
-  <meta name="description" content="MURUQ.TECH — discover useful apps, trusted software, Windows resources, technology guides and digital products.">
-  <meta name="robots" content="index,follow">
-  <title>MURUQ.TECH — Your Digital World</title>
-  <link rel="canonical" href="https://muruqship-it.github.io/MURUQ-THECH./">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%237c5cff'/%3E%3Ctext x='50%25' y='55%25' text-anchor='middle' font-size='42' font-family='Arial' font-weight='bold' fill='white'%3EM%3C/text%3E%3C/svg%3E">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080b12">
+  <meta name="description" content="MURUQ.TECH — Discover apps, games, software and digital tools.">
+  <title>MURUQ.TECH | Digital World</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-<header class="topbar">
-  <a class="brand" href="#home" aria-label="MURUQ.TECH home"><span class="logo">M</span><span><b>MURUQ.TECH</b><small>YOUR DIGITAL WORLD</small></span></a>
-  <button class="menu-btn" id="menuBtn" aria-label="Open navigation menu" aria-expanded="false">☰</button>
-  <nav id="nav">
-    <a href="#home">Home</a><a href="#apps">Apps</a><a href="#software">Software</a>
-    <a href="#windows">Windows</a><a href="#store">Store</a><a href="#blogs">Blogs</a>
-    <a href="#about">About</a><a href="#contact">Contact</a><a href="#privacy">Privacy</a>
-  </nav>
-</header>
+  <header class="header">
+    <div class="container nav-wrap">
+      <a class="logo" href="#home">MURUQ<span>.TECH</span></a>
 
-<main>
-  <section class="hero" id="home">
-    <div class="hero-copy">
-      <span class="eyebrow">✦ DIGITAL APP HUB — MADE FOR YOU</span>
-      <h1>Discover your<br><span>next favorite tool.</span></h1>
-      <p>Find useful apps, trusted software, Windows resources and digital products — all in one place.</p>
-      <div class="hero-actions"><a class="btn primary" href="#apps">Explore apps ↓</a><a class="btn" href="#store">Visit store ↗</a></div>
+      <button id="menuBtn" class="menu-btn"
+        aria-label="Open navigation" aria-expanded="false">☰</button>
+
+      <nav id="nav" class="nav">
+        <a href="#home">Home</a>
+        <a href="#apps">Apps & Games</a>
+        <a href="#software">Software</a>
+        <a href="#store">Store</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
     </div>
-    <div class="orbit" aria-hidden="true"><div class="orbit-ring"></div><span>📱</span><span>🎮</span><span>🤖</span><span>✨</span></div>
-  </section>
+  </header>
 
-  <section class="stats">
-    <div><b>Useful</b><small>Curated resources</small></div>
-    <div><b>Free + Paid</b><small>Clear pricing labels</small></div>
-    <div><b>24/7</b><small>Browse anytime</small></div>
-  </section>
+  <main>
+    <section id="home" class="hero">
+      <div class="container">
+        <span class="tag">WELCOME TO MURUQ.TECH</span>
+        <h1>Your Digital World.<br><span>One Place.</span></h1>
+        <p>
+          Discover useful apps, games, computer software
+          and digital tools in one simple place.
+        </p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#apps">Explore Apps ↗</a>
+          <a class="btn" href="#software">Browse Software</a>
+        </div>
+      </div>
+    </section>
 
-  <section class="section" id="apps">
-    <div class="section-head"><div><span class="eyebrow">FIND YOUR TOOLS</span><h2>Apps &amp; Games ✦</h2><p>Search and filter app links.</p></div><span class="count" id="appCount">Loading…</span></div>
-    <div class="searchbar"><span>⌕</span><input id="search" type="search" placeholder="Search apps, software, games..." aria-label="Search catalog"></div>
-    <div class="filters" id="filters">
-      <button class="filter active" data-category="All">All</button><button class="filter" data-category="Social">Social</button>
-      <button class="filter" data-category="Media">Media</button><button class="filter" data-category="Tools">Tools</button>
-      <button class="filter" data-category="Games">Games</button><button class="filter" data-category="AI">AI</button>
+    <section id="apps" class="section">
+      <div class="container">
+        <div class="section-heading">
+          <span class="tag">DISCOVER</span>
+          <h2>Apps & Games</h2>
+          <p>Find your favourite apps and games.</p>
+        </div>
+
+        <div class="search-wrap">
+          <input id="search" type="search"
+            placeholder="Search apps and games..."
+            aria-label="Search apps and games">
+        </div>
+
+        <div id="filters" class="filters">
+          <button class="btn active" data-filter="All">All</button>
+          <button class="btn" data-filter="Social">Social</button>
+          <button class="btn" data-filter="Media">Media</button>
+          <button class="btn" data-filter="Tools">Tools</button>
+          <button class="btn" data-filter="Games">Games</button>
+          <button class="btn" data-filter="AI">AI</button>
+        </div>
+
+        <p>Apps found: <strong id="appCount">0</strong></p>
+        <div id="appCards" class="cards"></div>
+        <p id="empty" class="hidden">No apps found. Try another search.</p>
+      </div>
+    </section>
+
+    <section id="software" class="section section-alt">
+      <div class="container">
+        <div class="section-heading">
+          <span class="tag">FOR YOUR COMPUTER</span>
+          <h2>Software Library</h2>
+          <p>Explore useful computer programs.</p>
+        </div>
+        <div id="softwareCards" class="cards"></div>
+      </div>
+    </section>
+
+    <section id="windows" class="section">
+      <div class="container">
+        <div class="section-heading">
+          <span class="tag">WINDOWS</span>
+          <h2>Windows Tools</h2>
+          <p>Visit official websites for Windows software and tools.</p>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <div class="app-icon">🖥️</div>
+            <h3>Microsoft Windows</h3>
+            <p>Official Windows information and downloads.</p>
+            <a class="btn primary"
+              href="https://www.microsoft.com/software-download/"
+              target="_blank" rel="noopener noreferrer">Visit Microsoft ↗</a>
+          </article>
+
+          <article class="card">
+            <div class="app-icon">🛡️</div>
+            <h3>Microsoft Security</h3>
+            <p>Learn about Windows security and protection.</p>
+            <a class="btn primary"
+              href="https://www.microsoft.com/security"
+              target="_blank" rel="noopener noreferrer">Explore ↗</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="store" class="section section-alt">
+      <div class="container">
+        <div class="section-heading">
+          <span class="tag">OFFICIAL PLATFORMS</span>
+          <h2>App Store</h2>
+          <p>Find apps from their official platforms.</p>
+        </div>
+        <div id="storeCards" class="cards"></div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container">
+        <div class="section-heading">
+          <span class="tag">ABOUT US</span>
+          <h2>About MURUQ.TECH</h2>
+          <p>
+            MURUQ.TECH is a digital discovery website designed
+            to help people explore apps, games, software
+            and useful online resources.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section section-alt">
+      <div class="container">
+        <div class="section-heading">
+          <span class="tag">GET IN TOUCH</span>
+          <h2>Contact Us</h2>
+          <p>Have a question or suggestion? Send us an email.</p>
+          <a class="btn primary"
+            id="emailButton"
+            href="mailto:Alicabdilaahi110@gmail.com">
+            Email MURUQ.TECH ↗
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <a class="logo" href="#home">MURUQ<span>.TECH</span></a>
+      <p>Discover more. Learn more. Do more.</p>
+      <p>
+        Contact:
+        <a id="footerEmail"
+          href="mailto:Alicabdilaahi110@gmail.com">
+          Alicabdilaahi110@gmail.com
+        </a>
+      </p>
+      <p>© <span id="year"></span> MURUQ.TECH. All rights reserved.</p>
     </div>
-    <div class="cards" id="appCards"></div><p class="empty hidden" id="empty">No matching items. Try another search.</p>
-  </section>
+  </footer>
 
-  <section class="section" id="software">
-    <div class="section-head"><div><span class="eyebrow">PC ESSENTIALS</span><h2>Software library</h2><p>Prefer official publisher download pages.</p></div></div>
-    <div class="cards" id="softwareCards"></div>
-  </section>
-
-  <section class="section windows" id="windows">
-    <div><span class="eyebrow">WINDOWS RESOURCES</span><h2>Windows downloads</h2>
-      <p>Download Windows installation media and updates directly from Microsoft. Check system requirements and back up your files before installing.</p>
-      <a class="btn primary" href="https://www.microsoft.com/software-download/windows11" target="_blank" rel="noopener noreferrer">Windows 11 — Microsoft ↗</a>
-      <a class="btn" href="https://www.microsoft.com/software-download/windows10" target="_blank" rel="noopener noreferrer">Windows 10 — Microsoft ↗</a>
-      <p class="note">Windows licensing and activation may require a valid license. MURUQ.TECH does not host modified Windows images or unauthorized keys.</p>
-    </div><div class="windows-icon">▦</div>
-  </section>
-
-  <section class="section" id="store">
-    <div class="section-head"><div><span class="eyebrow">DIGITAL MARKETPLACE</span><h2>MURUQ Store 🛍</h2><p>Replace sample items with products you actually offer.</p></div></div>
-    <div class="cards" id="storeCards"></div>
-    <p class="note">This starter store does not collect payments or customer details. Set up a trusted payment provider and secure backend before accepting online payments.</p>
-  </section>
-
-  <section class="section" id="blogs">
-    <div class="section-head"><div><span class="eyebrow">LATEST UPDATES</span><h2>MURUQ Blogs ✦</h2><p>Guides and technology tips.</p></div></div>
-    <div class="cards">
-      <article class="card"><div class="app-icon">💡</div><span class="tag">Safety</span><h3>How to download software safely</h3><p>Use the official publisher website and check the source before installing.</p><a class="btn" href="#software">Explore software ↗</a></article>
-      <article class="card"><div class="app-icon">🪟</div><span class="tag">Windows</span><h3>Prepare your PC before installing Windows</h3><p>Back up important files and check the official system requirements first.</p><a class="btn" href="#windows">Windows resources ↗</a></article>
-    </div>
-  </section>
-
-  <section class="section about" id="about">
-    <span class="eyebrow">ABOUT MURUQ.TECH</span><h2>Welcome to MURUQ.TECH</h2><h3 class="site-welcome">YOUR DIGITAL WORLD</h3>
-    <p>MURUQ.TECH is an independent directory for apps, software, Windows resources and digital products. We aim to point visitors to trustworthy sources.</p>
-    <div class="about-grid"><div><b>✓ Official links</b><small>Prefer the publisher’s download page.</small></div><div><b>✓ Clear categories</b><small>Find tools without clutter.</small></div><div><b>✓ Honest listings</b><small>Clearly label free and paid products.</small></div></div>
-  </section>
-
-  <section class="section contact" id="contact">
-    <span class="eyebrow">GET IN TOUCH</span><h2>Contact MURUQ.TECH</h2>
-    <p>Questions, corrections or business enquiries? Email us.</p>
-    <a class="btn primary" id="emailButton" href="mailto:Alicabdilaahi110@gmail.com">Email MURUQ.TECH ↗</a>
-    <p class="note">Email: Alicabdilaahi110@gmail.com</p>
-  </section>
-
-  <section class="section privacy" id="privacy">
-    <span class="eyebrow">SITE INFORMATION</span><h2>Privacy policy</h2>
-    <p>This starter website does not provide an account system, process payments, or intentionally collect information through forms. When you follow an external link, that service’s own privacy policy applies. Contact the site owner by email if you have questions.</p>
-    <p class="note">Update this policy if you later add analytics, advertising, forms, accounts or payment services.</p>
-  </section>
-</main>
-
-<footer>
-  <a class="brand" href="#home"><span class="logo">M</span><span><b>MURUQ.TECH</b><small>YOUR DIGITAL WORLD</small></span></a>
-  <p>© <span id="year"></span> MURUQ.TECH. Independent project; not affiliated with listed brands.</p>
-  <a id="footerEmail" href="mailto:Alicabdilaahi110@gmail.com">Contact site owner</a>
-</footer>
-
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
