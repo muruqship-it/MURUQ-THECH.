@@ -1,28 +1,24 @@
 
 window.MURUQ = window.MURUQ || {};
 
-window.MURUQ.initGames = function() {
-  const gameButton = document.querySelector('.filter[data-filter="games"]');
-
-  if (!gameButton) return;
-
-  gameButton.addEventListener("dblclick", () => {
-    document.getElementById("catalog")?.scrollIntoView({
-      behavior: "smooth",
-      block: "start"
-    });
-  });
-};
-
 document.addEventListener("DOMContentLoaded", () => {
-  window.MURUQ.initGames();
-
   document.querySelectorAll('a[href="#games"]').forEach(link => {
-    link.addEventListener("click", () => {
-      const gameButton = document.querySelector('.filter[data-filter="games"]');
+    link.addEventListener("click", event => {
+      event.preventDefault();
 
-      if (gameButton) {
-        gameButton.click();
+      const button = document.querySelector(
+        '.filter[data-filter="games"]'
+      );
+
+      const catalog = document.getElementById("catalog");
+
+      if (button) button.click();
+
+      if (catalog) {
+        catalog.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
       }
     });
   });
