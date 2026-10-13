@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080b12">
+  <meta name="description" content="MURUQ.THECH — discover Android apps, games and PC software from official download sources.">
+  <title>MURUQ.THECH | Apps, Games & PC Software</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <a class="logo" href="#"><span class="logo-mark">M</span><span>MURUQ<span class="accent">.THECH</span></span></a>
+    <nav><a href="#catalog">Discover</a><a href="#android">Android</a><a href="#pc">PC Software</a></nav>
+    <a class="header-cta" href="#catalog">Explore <span>↗</span></a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <div class="eyebrow"><span class="pulse"></span> YOUR DIGITAL DOWNLOAD HUB</div>
+        <h1>Apps and games.<br><span>All in one place.</span></h1>
+        <p>Discover Android apps, games and PC software through a clean, simple directory. Download links open official publisher pages.</p>
+        <div class="searchbox"><span>⌕</span><input id="searchInput" type="search" placeholder="Search apps, games or software..." aria-label="Search apps and software"><button id="clearSearch" type="button" aria-label="Clear search">×</button></div>
+        <div class="trust-line"><span>✓</span> Easy to explore <span>✓</span> Official-source links</div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="ring ring-a"></div><div class="ring ring-b"></div>
+        <div class="main-tile"><div class="main-m">M</div><small>MURUQ.THECH</small></div>
+        <div class="float-chip chip-one"><span class="chip-icon purple">▣</span><div><b>Android Apps</b><small>Mobile downloads</small></div></div>
+        <div class="float-chip chip-two"><span class="chip-icon mint">⌘</span><div><b>PC Software</b><small>Desktop tools</small></div></div>
+      </div>
+    </section>
+
+    <section class="quick-links">
+      <a href="#android"><span class="quick-icon">▣</span><span><b>Android Apps</b><small>Phones & tablets</small></span><i>↗</i></a>
+      <a href="#games"><span class="quick-icon game">▶</span><span><b>Games</b><small>Explore game links</small></span><i>↗</i></a>
+      <a href="#pc"><span class="quick-icon pc">⌘</span><span><b>PC Software</b><small>Windows & desktop</small></span><i>↗</i></a>
+    </section>
+
+    <section class="catalog" id="catalog">
+      <div class="section-title"><div><div class="eyebrow">THE COLLECTION</div><h2>Explore downloads</h2><p>Search the list or filter by category.</p></div><span id="count" class="count">8 items</span></div>
+      <div class="filters">
+        <button class="filter active" data-filter="all">All</button>
+        <button class="filter" data-filter="android" id="android">Android</button>
+        <button class="filter" data-filter="games" id="games">Games</button>
+        <button class="filter" data-filter="pc" id="pc">PC Software</button>
+        <button class="filter" data-filter="media">Media</button>
+        <button class="filter" data-filter="tools">Tools</button>
+      </div>
+      <div id="appGrid" class="app-grid"></div>
+      <div id="emptyState" class="empty" hidden><div>⌕</div><h3>No matching results</h3><p>Try another name or category.</p></div>
+    </section>
+
+    <section class="notice">
+      <div class="notice-icon">↓</div><div><h2>Download safely</h2><p>MURUQ.THECH is a software directory template. Check the publisher and system requirements before installing anything. This demo links to official websites; it does not host APK or EXE files.</p></div>
+    </section>
+  </main>
+
+  <footer><a class="logo" href="#"><span class="logo-mark">M</span><span>MURUQ<span class="accent">.THECH</span></span></a><p>Independent directory template. App and product names belong to their owners.</p><span>© <span id="year"></span> MURUQ.THECH</span></footer>
+  <script src="input.js"></script>
+  <script src="render.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
