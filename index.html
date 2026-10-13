@@ -1,138 +1,68 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#080b12">
-  <meta name="description" content="MURUQ.THECH — discover apps, games and PC software.">
-  <title>MURUQ.THECH — Digital Software Market</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080a12">
+  <meta name="description" content="Discover Android apps, PC software, games, media and creative tools on MURUQ.THECH.">
+  <title>MURUQ.THECH — Discover Great Software</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script defer src="render.js"></script>
+  <script defer src="input.js"></script>
 </head>
 <body>
-  <header class="header">
-    <a class="logo" href="#">
-      <span class="logo-mark">M</span>
-      <span>MURUQ<span class="accent">.THECH</span></span>
-    </a>
-    <nav class="nav">
-      <a href="#catalog">Discover</a>
-      <a href="#android">Android</a>
-      <a href="#pc">PC Software</a>
-    </nav>
-    <a class="header-cta" href="#catalog">Explore <span>↗</span></a>
+  <div class="glow glow-a"></div><div class="glow glow-b"></div>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="MURUQ.THECH home"><span class="brand-icon">M</span><span class="brand-words">MURUQ<span>.THECH</span><small>SOFTWARE DISCOVERY</small></span></a>
+    <nav class="main-nav" aria-label="Main navigation"><a href="#catalog">Discover</a><a href="#catalog" data-filter-link="android">Android</a><a href="#catalog" data-filter-link="pc">PC Software</a></nav>
+    <a class="header-button" href="#catalog">Explore library <span>↗</span></a>
   </header>
 
-  <main>
+  <main id="top">
     <section class="hero">
-      <div class="hero-content">
-        <div class="eyebrow"><span class="pulse"></span> YOUR DIGITAL DOWNLOAD HUB</div>
-        <h1>Discover more.<br><span>Do more.</span></h1>
-        <p>
-          Explore Android apps, games and PC software in one place.
-          Find useful tools through a simple, modern experience.
-        </p>
-        <div class="searchbox">
-          <span>⌕</span>
-          <input id="searchInput" type="search"
-            placeholder="Search apps, games or software..."
-            aria-label="Search apps">
-          <button id="clearSearch" type="button" aria-label="Clear search">×</button>
-        </div>
-        <div class="trust-line">
-          <span>✓</span> Easy to explore
-          <span>✓</span> Official download links
-        </div>
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="status-dot"></span> YOUR DIGITAL WORLD, IN ONE PLACE</div>
+        <h1>Find tools that<br><span>move you forward.</span></h1>
+        <p class="hero-lead">Explore useful apps, creative software and games. One simple directory, with links to official download sources.</p>
+        <form class="search-box" id="searchForm" role="search">
+          <span class="search-icon" aria-hidden="true">⌕</span>
+          <input id="searchInput" type="search" placeholder="Search apps, games, software…" aria-label="Search the software library" autocomplete="off">
+          <button class="clear-search" id="clearSearch" type="button" aria-label="Clear search">×</button>
+          <button class="search-button" type="submit">Search</button>
+        </form>
+        <div class="hero-perks"><span>✓ Official sources</span><span>✓ Free options</span><span>✓ Mobile friendly</span></div>
       </div>
-
-      <div class="hero-visual" aria-hidden="true">
-        <div class="ring ring-a"></div>
-        <div class="ring ring-b"></div>
-        <div class="main-tile">
-          <div class="main-m">M</div>
-          <small>MURUQ.THECH</small>
-          <span>SOFTWARE MARKET</span>
-        </div>
-        <div class="float-chip chip-one">
-          <span class="chip-icon purple">▣</span>
-          <div><b>Android Apps</b><small>Mobile tools</small></div>
-        </div>
-        <div class="float-chip chip-two">
-          <span class="chip-icon mint">⌘</span>
-          <div><b>PC Software</b><small>Desktop tools</small></div>
-        </div>
+      <div class="hero-visual" aria-label="MURUQ.THECH brand artwork">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="showcase-card"><div class="showcase-mark">M</div><strong>MURUQ<span>.THECH</span></strong><small>DISCOVER · CREATE · PLAY</small><div class="equalizer"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+        <div class="float-pill pill-android"><b class="pill-symbol purple">▣</b><span><strong>Android Apps</strong><small>Everyday essentials</small></span></div>
+        <div class="float-pill pill-pc"><b class="pill-symbol aqua">⌘</b><span><strong>PC Software</strong><small>Tools for creators</small></span></div>
+        <div class="float-pill pill-games"><b class="pill-symbol orange">▶</b><span><strong>Games</strong><small>Find your next game</small></span></div>
       </div>
     </section>
 
-    <section class="quick-links">
-      <a href="#android">
-        <span class="quick-icon">▣</span>
-        <span><b>Android Apps</b><small>Phones & tablets</small></span>
-        <i>↗</i>
-      </a>
-      <a href="#games">
-        <span class="quick-icon game">▶</span>
-        <span><b>Games</b><small>Explore games</small></span>
-        <i>↗</i>
-      </a>
-      <a href="#pc">
-        <span class="quick-icon pc">⌘</span>
-        <span><b>PC Software</b><small>Desktop downloads</small></span>
-        <i>↗</i>
-      </a>
-    </section>
+    <section class="feature-strip" aria-label="Directory features"><div><strong>30+</strong><span>apps to explore</span></div><div><strong>05</strong><span>easy categories</span></div><div><strong>100%</strong><span>official-link focus</span></div></section>
 
-    <section class="catalog" id="catalog">
-      <div class="section-title">
-        <div>
-          <div class="eyebrow">THE COLLECTION</div>
-          <h2>Explore downloads</h2>
-          <p>Discover useful apps and software for your devices.</p>
-        </div>
-        <span id="count" class="count">Loading...</span>
+    <section class="library" id="catalog">
+      <div class="section-head"><div><div class="eyebrow">THE LIBRARY</div><h2>Explore software</h2><p>Search the collection or choose a category below.</p></div><span id="count" class="result-count">Preparing library…</span></div>
+      <div class="filter-row" aria-label="Filter by category">
+        <button type="button" class="filter active" data-filter="all"><span>✦</span> All apps</button>
+        <button type="button" class="filter" data-filter="android"><span>▣</span> Android</button>
+        <button type="button" class="filter" data-filter="games"><span>▶</span> Games</button>
+        <button type="button" class="filter" data-filter="pc"><span>⌘</span> PC Software</button>
+        <button type="button" class="filter" data-filter="media"><span>♫</span> Media</button>
+        <button type="button" class="filter" data-filter="tools"><span>⚙</span> Tools</button>
       </div>
-
-      <div class="filters">
-        <button class="filter active" data-filter="all">All</button>
-        <button class="filter" data-filter="android" id="android">Android</button>
-        <button class="filter" data-filter="games" id="games">Games</button>
-        <button class="filter" data-filter="pc" id="pc">PC Software</button>
-        <button class="filter" data-filter="media">Media</button>
-        <button class="filter" data-filter="tools">Tools</button>
-      </div>
-
       <div id="appGrid" class="app-grid" aria-live="polite"></div>
-
-      <div id="emptyState" class="empty" hidden>
-        <div>⌕</div>
-        <h3>No matching results</h3>
-        <p>Try another search or category.</p>
-      </div>
+      <div id="emptyState" class="empty-state" hidden><div>⌕</div><h3>No results found</h3><p>Try a different search or switch to another category.</p><button type="button" id="resetButton">Show all apps</button></div>
+      <p class="fine-print">MURUQ.THECH is an independent software directory, not the owner of the listed products. Download buttons open official publisher pages or official stores. Some products may include paid features or regional restrictions.</p>
     </section>
 
-    <section class="notice">
-      <div class="notice-icon">↓</div>
-      <div>
-        <h2>Download with confidence</h2>
-        <p>
-          We direct users to official publisher websites.
-          Always check compatibility before installing software.
-        </p>
-      </div>
-    </section>
+    <section class="closing-banner"><div class="download-symbol">↓</div><div><div class="eyebrow">READY WHEN YOU ARE</div><h2>Your next useful app is a click away.</h2><p>Open an app’s official page to check details, compatibility and download options.</p></div><a href="#catalog">Browse library ↗</a></section>
   </main>
-
-  <footer>
-    <a class="logo" href="#">
-      <span class="logo-mark">M</span>
-      <span>MURUQ<span class="accent">.THECH</span></span>
-    </a>
-    <p>An independent digital software directory.</p>
-    <span>© <span id="year">2026</span> MURUQ.THECH</span>
-  </footer>
-
-  <script src="render.js"></script>
-  <script src="input.js"></script>
-  <script src="game.js"></script>
+  <footer class="site-footer"><a class="brand" href="#top"><span class="brand-icon">M</span><span class="brand-words">MURUQ<span>.THECH</span><small>SOFTWARE DISCOVERY</small></span></a><p>Independent directory · <span id="year">2026</span></p></footer>
 </body>
 </html>
