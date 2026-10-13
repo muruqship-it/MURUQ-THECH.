@@ -1,179 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080b12">
+  <meta name="description" content="MURUQ.THECH — discover Android apps, games and PC software from official download sources.">
+  <title>MURUQ.THECH | Apps, Games & PC Software</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <a class="logo" href="#"><span class="logo-mark">M</span><span>MURUQ<span class="accent">.THECH</span></span></a>
+    <nav><a href="#catalog">Discover</a><a href="#android">Android</a><a href="#pc">PC Software</a></nav>
+    <a class="header-cta" href="#catalog">Explore <span>↗</span></a>
+  </header>
 
-/* MURUQ.THECH — App catalog, search and filters */
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <div class="eyebrow"><span class="pulse"></span> YOUR DIGITAL DOWNLOAD HUB</div>
+        <h1>Apps and games.<br><span>All in one place.</span></h1>
+        <p>Discover Android apps, games and PC software through a clean, simple directory. Download links open official publisher pages.</p>
+        <div class="searchbox"><span>⌕</span><input id="searchInput" type="search" placeholder="Search apps, games or software..." aria-label="Search apps and software"><button id="clearSearch" type="button" aria-label="Clear search">×</button></div>
+        <div class="trust-line"><span>✓</span> Easy to explore <span>✓</span> Official-source links</div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="ring ring-a"></div><div class="ring ring-b"></div>
+        <div class="main-tile"><div class="main-m">M</div><small>MURUQ.THECH</small></div>
+        <div class="float-chip chip-one"><span class="chip-icon purple">▣</span><div><b>Android Apps</b><small>Mobile downloads</small></div></div>
+        <div class="float-chip chip-two"><span class="chip-icon mint">⌘</span><div><b>PC Software</b><small>Desktop tools</small></div></div>
+      </div>
+    </section>
 
-window.MURUQ = window.MURUQ || {};
+    <section class="quick-links">
+      <a href="#android"><span class="quick-icon">▣</span><span><b>Android Apps</b><small>Phones & tablets</small></span><i>↗</i></a>
+      <a href="#games"><span class="quick-icon game">▶</span><span><b>Games</b><small>Explore game links</small></span><i>↗</i></a>
+      <a href="#pc"><span class="quick-icon pc">⌘</span><span><b>PC Software</b><small>Windows & desktop</small></span><i>↗</i></a>
+    </section>
 
-window.MURUQ.apps = [
-  {
-    name: "VLC for Android",
-    category: "android",
-    type: "Android",
-    description: "Play video and audio files on your phone.",
-    icon: "▶",
-    url: "https://www.videolan.org/vlc/download-android.html"
-  },
-  {
-    name: "Firefox for Android",
-    category: "android",
-    type: "Android",
-    description: "Browse the web with Firefox.",
-    icon: "🦊",
-    url: "https://www.mozilla.org/firefox/browsers/mobile/android/"
-  },
-  {
-    name: "Telegram",
-    category: "android",
-    type: "Android",
-    description: "Messaging app for Android devices.",
-    icon: "✈",
-    url: "https://telegram.org/android"
-  },
-  {
-    name: "eFootball",
-    category: "games",
-    type: "Game",
-    description: "Explore the official eFootball game page.",
-    icon: "⚽",
-    url: "https://www.konami.com/efootball/"
-  },
-  {
-    name: "Krita",
-    category: "pc",
-    type: "PC Software",
-    description: "Digital painting and illustration software.",
-    icon: "🎨",
-    url: "https://krita.org/en/download/"
-  },
-  {
-    name: "7-Zip",
-    category: "tools",
-    type: "Tools",
-    description: "Compress and extract files on Windows.",
-    icon: "📦",
-    url: "https://www.7-zip.org/"
-  },
-  {
-    name: "GIMP",
-    category: "pc",
-    type: "PC Software",
-    description: "Free image editing software.",
-    icon: "🖼",
-    url: "https://www.gimp.org/downloads/"
-  },
-  {
-    name: "LibreOffice",
-    category: "pc",
-    type: "PC Software",
-    description: "Create documents, spreadsheets and presentations.",
-    icon: "📄",
-    url: "https://www.libreoffice.org/download/download-libreoffice/"
-  },
-  {
-    name: "Godot Engine",
-    category: "games",
-    type: "Game Tools",
-    description: "Tools for creating your own games.",
-    icon: "🎮",
-    url: "https://godotengine.org/download/"
-  },
-  {
-    name: "Blender",
-    category: "pc",
-    type: "PC Software",
-    description: "Create 3D models, animations and scenes.",
-    icon: "🧊",
-    url: "https://www.blender.org/download/"
-  },
-  {
-    name: "Audacity",
-    category: "media",
-    type: "Media",
-    description: "Record and edit audio.",
-    icon: "🎧",
-    url: "https://www.audacityteam.org/download/"
-  },
-  {
-    name: "Android Developers",
-    category: "tools",
-    type: "Tools",
-    description: "Official Android development resources.",
-    icon: "🤖",
-    url: "https://developer.android.com/"
-  }
-];
+    <section class="catalog" id="catalog">
+      <div class="section-title"><div><div class="eyebrow">THE COLLECTION</div><h2>Explore downloads</h2><p>Search the list or filter by category.</p></div><span id="count" class="count">8 items</span></div>
+      <div class="filters">
+        <button class="filter active" data-filter="all">All</button>
+        <button class="filter" data-filter="android" id="android">Android</button>
+        <button class="filter" data-filter="games" id="games">Games</button>
+        <button class="filter" data-filter="pc" id="pc">PC Software</button>
+        <button class="filter" data-filter="media">Media</button>
+        <button class="filter" data-filter="tools">Tools</button>
+      </div>
+      <div id="appGrid" class="app-grid"></div>
+      <div id="emptyState" class="empty" hidden><div>⌕</div><h3>No matching results</h3><p>Try another name or category.</p></div>
+    </section>
 
-window.MURUQ.activeFilter = window.MURUQ.activeFilter || "all";
-window.MURUQ.searchTerm = window.MURUQ.searchTerm || "";
+    <section class="notice">
+      <div class="notice-icon">↓</div><div><h2>Download safely</h2><p>MURUQ.THECH is a software directory template. Check the publisher and system requirements before installing anything. This demo links to official websites; it does not host APK or EXE files.</p></div>
+    </section>
+  </main>
 
-window.MURUQ.escapeHTML = function (value) {
-  return String(value).replace(/[&<>"']/g, function (char) {
-    return {
-      "&": "&amp;",
-      "<": "&lt;",
-      ">": "&gt;",
-      '"': "&quot;",
-      "'": "&#39;"
-    }[char];
-  });
-};
-
-window.MURUQ.renderCatalog = function () {
-  const grid = document.getElementById("appGrid");
-  const count = document.getElementById("count");
-  const empty = document.getElementById("emptyState");
-
-  if (!grid) return;
-
-  const term = window.MURUQ.searchTerm.toLowerCase();
-  const filter = window.MURUQ.activeFilter;
-
-  const apps = window.MURUQ.apps.filter(function (app) {
-    const matchesFilter =
-      filter === "all" || app.category === filter;
-
-    const searchable =
-      (app.name + " " + app.description + " " +
-       app.type + " " + app.category).toLowerCase();
-
-    return matchesFilter && searchable.includes(term);
-  });
-
-  grid.innerHTML = apps.map(function (app) {
-    const name = window.MURUQ.escapeHTML(app.name);
-    const type = window.MURUQ.escapeHTML(app.type);
-    const description = window.MURUQ.escapeHTML(app.description);
-    const icon = window.MURUQ.escapeHTML(app.icon);
-    const url = window.MURUQ.escapeHTML(app.url);
-
-    return `
-      <article class="app-card">
-        <div class="app-top">
-          <div class="app-icon">${icon}</div>
-          <span class="app-category">${type}</span>
-        </div>
-        <h3 class="app-name">${name}</h3>
-        <p class="app-description">${description}</p>
-        <a class="download"
-           href="${url}"
-           target="_blank"
-           rel="noopener noreferrer">
-          Official download ↗
-        </a>
-      </article>
-    `;
-  }).join("");
-
-  if (count) {
-    count.textContent = apps.length +
-      (apps.length === 1 ? " item" : " items");
-  }
-
-  if (empty) {
-    empty.hidden = apps.length !== 0;
-  }
-};
-
-document.addEventListener("DOMContentLoaded", function () {
-  window.MURUQ.renderCatalog();
-});
-
+  <footer><a class="logo" href="#"><span class="logo-mark">M</span><span>MURUQ<span class="accent">.THECH</span></span></a><p>Independent directory template. App and product names belong to their owners.</p><span>© <span id="year"></span> MURUQ.THECH</span></footer>
+  <script src="input.js"></script>
+  <script src="render.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
