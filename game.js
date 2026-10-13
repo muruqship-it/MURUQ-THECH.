@@ -1,29 +1,29 @@
 
-(function () {
-  function setupPage() {
-    const year = document.getElementById("year");
+window.MURUQ = window.MURUQ || {};
 
-    if (year) {
-      year.textContent = new Date().getFullYear();
-    }
+window.MURUQ.initGames = function() {
+  const gameButton = document.querySelector('.filter[data-filter="games"]');
 
-    document.querySelectorAll('a[href="#catalog"]').forEach(function (link) {
-      link.addEventListener("click", function () {
-        const catalog = document.getElementById("catalog");
+  if (!gameButton) return;
 
-        if (catalog) {
-          catalog.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-          });
-        }
-      });
+  gameButton.addEventListener("dblclick", () => {
+    document.getElementById("catalog")?.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
     });
-  }
+  });
+};
 
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", setupPage);
-  } else {
-    setupPage();
-  }
-})();
+document.addEventListener("DOMContentLoaded", () => {
+  window.MURUQ.initGames();
+
+  document.querySelectorAll('a[href="#games"]').forEach(link => {
+    link.addEventListener("click", () => {
+      const gameButton = document.querySelector('.filter[data-filter="games"]');
+
+      if (gameButton) {
+        gameButton.click();
+      }
+    });
+  });
+});
