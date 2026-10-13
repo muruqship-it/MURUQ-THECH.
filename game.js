@@ -1,21 +1,19 @@
 
-window.MURUQ = window.MURUQ || {};
-
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll('a[href="#games"]').forEach(link => {
     link.addEventListener("click", event => {
       event.preventDefault();
 
       const button = document.querySelector(
-        '.filter[data-filter="games"]'
+        '#filters [data-filter="Games"]'
       );
 
-      const catalog = document.getElementById("catalog");
+      const section = document.getElementById("apps");
 
       if (button) button.click();
 
-      if (catalog) {
-        catalog.scrollIntoView({
+      if (section) {
+        section.scrollIntoView({
           behavior: "smooth",
           block: "start"
         });
