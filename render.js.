@@ -1,177 +1,52 @@
+// MURUQ.THECH — app catalogue and card rendering
+window.MURUQ = window.MURUQ || {};
 
-(function () {
-  window.MURUQ = window.MURUQ || {};
+window.MURUQ.apps = [
+  {name:"VLC for Android",platform:"android",category:"media",symbol:"▶",color:"#d66c21",description:"Play a wide range of video and audio formats.",device:"Android",url:"https://www.videolan.org/vlc/download-android.html"},
+  {name:"Firefox for Android",platform:"android",category:"tools",symbol:"🦊",color:"#6e3dde",description:"A mobile browser with privacy tools and extensions.",device:"Android",url:"https://www.mozilla.org/firefox/browsers/mobile/android/"},
+  {name:"Telegram",platform:"android",category:"tools",symbol:"➤",color:"#168bd2",description:"Messaging, group chats and file sharing.",device:"Android",url:"https://telegram.org/android"},
+  {name:"Krita",platform:"pc",category:"media",symbol:"K",color:"#269e91",description:"Create digital paintings, illustrations and artwork.",device:"Windows / PC",url:"https://krita.org/en/download/"},
+  {name:"VLC Media Player",platform:"pc",category:"media",symbol:"▶",color:"#d66c21",description:"A free player for many video and audio formats.",device:"Windows / PC",url:"https://www.videolan.org/vlc/"},
+  {name:"7-Zip",platform:"pc",category:"tools",symbol:"7z",color:"#337ac3",description:"Compress and extract archive files.",device:"Windows / PC",url:"https://www.7-zip.org/"},
+  {name:"GIMP",platform:"pc",category:"media",symbol:"G",color:"#9a743a",description:"An image editor for photos and graphic design.",device:"Windows / PC",url:"https://www.gimp.org/downloads/"},
+  {name:"LibreOffice",platform:"pc",category:"tools",symbol:"▤",color:"#2672b5",description:"Office tools for documents, spreadsheets and slides.",device:"Windows / PC",url:"https://www.libreoffice.org/download/download-libreoffice/"},
+  {name:"Godot Engine",platform:"pc",category:"games",symbol:"◆",color:"#347ac2",description:"A free engine for building 2D and 3D games.",device:"Windows / PC",url:"https://godotengine.org/download/"},
+  {name:"Blender",platform:"pc",category:"media",symbol:"◉",color:"#bd6b2a",description:"Create 3D models, animation and visual effects.",device:"Windows / PC",url:"https://www.blender.org/download/"},
+  {name:"Audacity",platform:"pc",category:"media",symbol:"♫",color:"#366bc1",description:"Record and edit audio on your computer.",device:"Windows / PC",url:"https://www.audacityteam.org/download/"},
+  {name:"Android Developers",platform:"android",category:"tools",symbol:"A",color:"#3e9c64",description:"Official Android developer resources and tools.",device:"Android / Web",url:"https://developer.android.com/"}
+];
 
-  window.MURUQ.apps = [
-    {
-      name: "VLC for Android",
-      category: "android",
-      type: "Android App",
-      icon: "▶️",
-      description: "Play video and audio files on your Android phone.",
-      url: "https://play.google.com/store/apps/details?id=org.videolan.vlc"
-    },
-    {
-      name: "Firefox for Android",
-      category: "android",
-      type: "Android App",
-      icon: "🦊",
-      description: "A web browser from Mozilla.",
-      url: "https://play.google.com/store/apps/details?id=org.mozilla.firefox"
-    },
-    {
-      name: "Telegram",
-      category: "android",
-      type: "Android App",
-      icon: "✈️",
-      description: "Messaging app with file sharing.",
-      url: "https://telegram.org/android"
-    },
-    {
-      name: "eFootball",
-      category: "games",
-      type: "Football Game",
-      icon: "⚽",
-      description: "Explore the official eFootball game website.",
-      url: "https://www.konami.com/efootball/"
-    },
-    {
-      name: "Godot Engine",
-      category: "games",
-      type: "Game Development",
-      icon: "🎮",
-      description: "Create your own 2D and 3D games.",
-      url: "https://godotengine.org/download/"
-    },
-    {
-      name: "Krita",
-      category: "pc",
-      type: "PC Software",
-      icon: "🎨",
-      description: "Digital painting and illustration software.",
-      url: "https://krita.org/en/download/"
-    },
-    {
-      name: "7-Zip",
-      category: "tools",
-      type: "PC Tool",
-      icon: "🗜️",
-      description: "Compress and extract archive files.",
-      url: "https://www.7-zip.org/"
-    },
-    {
-      name: "GIMP",
-      category: "pc",
-      type: "PC Software",
-      icon: "🖼️",
-      description: "Image editing software.",
-      url: "https://www.gimp.org/downloads/"
-    },
-    {
-      name: "LibreOffice",
-      category: "pc",
-      type: "PC Software",
-      icon: "📄",
-      description: "Office applications for documents and spreadsheets.",
-      url: "https://www.libreoffice.org/download/"
-    },
-    {
-      name: "Blender",
-      category: "pc",
-      type: "PC Software",
-      icon: "🧊",
-      description: "3D modelling, animation and rendering software.",
-      url: "https://www.blender.org/download/"
-    },
-    {
-      name: "Audacity",
-      category: "media",
-      type: "Media Software",
-      icon: "🎙️",
-      description: "Record and edit audio.",
-      url: "https://www.audacityteam.org/download/"
-    },
-    {
-      name: "Android Developers",
-      category: "tools",
-      type: "Developer Tools",
-      icon: "🤖",
-      description: "Official Android development documentation and tools.",
-      url: "https://developer.android.com/"
-    }
-  ];
+window.MURUQ.escapeHTML = function(value) {
+  return String(value).replace(/[&<>"']/g, char => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[char]));
+};
 
-  window.MURUQ.activeFilter = "all";
-  window.MURUQ.searchTerm = "";
+window.MURUQ.renderCatalog = function() {
+  const grid = document.getElementById("appGrid");
+  const count = document.getElementById("count");
+  const empty = document.getElementById("emptyState");
+  if (!grid) return;
 
-  window.MURUQ.escapeHTML = function (value) {
-    return String(value).replace(/[&<>"']/g, function (character) {
-      return {
-        "&": "&amp;",
-        "<": "&lt;",
-        ">": "&gt;",
-        '"': "&quot;",
-        "'": "&#39;"
-      }[character];
-    });
-  };
+  const term = window.MURUQ.searchTerm || "";
+  const filter = window.MURUQ.activeFilter || "all";
+  const safe = window.MURUQ.escapeHTML;
+  const results = window.MURUQ.apps.filter(app => {
+    const matchesFilter = filter === "all" || app.platform === filter || app.category === filter;
+    const text = `${app.name} ${app.description} ${app.platform} ${app.category}`.toLowerCase();
+    return matchesFilter && text.includes(term);
+  });
 
-  window.MURUQ.renderCatalog = function () {
-    const grid = document.getElementById("appGrid");
-    const count = document.getElementById("count");
-    const empty = document.getElementById("emptyState");
+  grid.innerHTML = results.map(app => `
+    <article class="app-card">
+      <div class="card-head"><div class="app-logo" style="--logo:${app.color}">${safe(app.symbol)}</div><span class="tag">${app.platform === "android" ? "ANDROID" : "PC SOFTWARE"}</span></div>
+      <h3>${safe(app.name)}</h3>
+      <p>${safe(app.description)}</p>
+      <div class="meta"><span>${safe(app.device)}</span><span>${safe(app.category.toUpperCase())}</span></div>
+      <a class="download" href="${app.url}" target="_blank" rel="noopener noreferrer">Official download ↗</a>
+    </article>`).join("");
 
-    if (!grid) return;
+  if (count) count.textContent = `${results.length} ${results.length === 1 ? "item" : "items"}`;
+  if (empty) empty.hidden = results.length > 0;
+  grid.hidden = results.length === 0;
+};
 
-    const term = window.MURUQ.searchTerm.toLowerCase();
-    const filter = window.MURUQ.activeFilter;
-
-    const results = window.MURUQ.apps.filter(function (app) {
-      const matchesCategory =
-        filter === "all" || app.category === filter;
-
-      const searchable = (
-        app.name + " " +
-        app.description + " " +
-        app.type + " " +
-        app.category
-      ).toLowerCase();
-
-      return matchesCategory && searchable.includes(term);
-    });
-
-    grid.innerHTML = results.map(function (app) {
-      return `
-        <article class="app-card">
-          <div class="app-top">
-            <div class="app-icon">${window.MURUQ.escapeHTML(app.icon)}</div>
-            <span class="app-category">${window.MURUQ.escapeHTML(app.type)}</span>
-          </div>
-          <h3 class="app-name">${window.MURUQ.escapeHTML(app.name)}</h3>
-          <p class="app-description">${window.MURUQ.escapeHTML(app.description)}</p>
-          <a class="download"
-             href="${window.MURUQ.escapeHTML(app.url)}"
-             target="_blank"
-             rel="noopener noreferrer">
-             Official download ↗
-          </a>
-        </article>
-      `;
-    }).join("");
-
-    if (count) {
-      count.textContent = results.length +
-        (results.length === 1 ? " item" : " items");
-    }
-
-    if (empty) empty.hidden = results.length !== 0;
-  };
-
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", function () {
-      window.MURUQ.renderCatalog();
-    });
-  } else {
-    window.MURUQ.renderCatalog();
-  }
-})();
+document.addEventListener("DOMContentLoaded", () => window.MURUQ.renderCatalog());
