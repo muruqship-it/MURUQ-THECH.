@@ -1,68 +1,206 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#080a12">
-  <meta name="description" content="Discover Android apps, PC software, games, media and creative tools on MURUQ.THECH.">
-  <title>MURUQ.THECH — Discover Great Software</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <script defer src="render.js"></script>
-  <script defer src="input.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#090b13">
+<meta name="description" content="MURUQ.TECH — discover Android apps, games, media tools and PC software through official download sources.">
+<title>MURUQ.TECH — Apps, Games & Software</title>
+<style>
+:root{color-scheme:dark;--bg:#080a12;--panel:#111522;--panel2:#171c2b;--line:#293147;--text:#f5f5fb;--muted:#a9b0c4;--purple:#a78bfa;--mint:#68f0c1;--radius:22px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(ellipse at 80% 0%,#21153b 0,transparent 34rem),var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+a{color:inherit}
+button,input{font:inherit}
+button,a{ -webkit-tap-highlight-color:transparent}
+.wrap{width:min(1120px,calc(100% - 32px));margin-inline:auto}
+header{position:sticky;top:0;z-index:10;background:#090b13eF;backdrop-filter:blur(16px);border-bottom:1px solid #242a3b}
+.nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;font-weight:850;letter-spacing:-.04em;font-size:1.18rem}
+.logo{width:43px;height:43px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(135deg,var(--purple),var(--mint));color:#0a1020;font-size:1.5rem;font-weight:950;box-shadow:0 8px 30px #8e78fa30}
+.brand span span{color:var(--purple)}
+.navlinks{display:flex;gap:22px;align-items:center}
+.navlinks a{text-decoration:none;color:var(--muted);font-size:.92rem}
+.navlinks a:hover{color:var(--mint)}
+.pill{display:inline-flex;align-items:center;gap:8px;border:1px solid #35405a;background:#141929;border-radius:999px;padding:8px 13px;color:#e7e9f4;font-size:.83rem}
+.hero{padding:76px 0 46px;display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:center}
+.eyebrow{color:var(--mint);font-size:.76rem;font-weight:850;letter-spacing:.19em;text-transform:uppercase;display:flex;align-items:center;gap:10px}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--mint);box-shadow:0 0 18px var(--mint)}
+h1{font-size:clamp(2.8rem,7vw,5.3rem);line-height:.99;letter-spacing:-.075em;margin:22px 0}
+.gradient{background:linear-gradient(100deg,#c4b5fd,var(--purple),#7cf2d0);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{color:var(--muted);font-size:1.08rem;max-width:620px}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin:26px 0}
+.btn{border:1px solid var(--line);border-radius:13px;padding:12px 17px;text-decoration:none;display:inline-flex;justify-content:center;align-items:center;gap:8px;font-weight:750;cursor:pointer}
+.btn.primary{background:linear-gradient(135deg,#b49aff,#75eac8);color:#09101a;border:0}
+.btn.secondary{background:#151a29;color:var(--text)}
+.trust{display:flex;gap:16px;flex-wrap:wrap;color:var(--muted);font-size:.86rem}
+.trust span:before{content:"✓";color:var(--mint);font-weight:900;margin-right:7px}
+.hero-art{min-height:330px;position:relative;display:grid;place-items:center;overflow:hidden;border:1px solid #30334c;border-radius:30px;background:linear-gradient(145deg,#171a2c,#0d101a 70%);padding:24px}
+.orbit{position:absolute;width:260px;height:260px;border:1px solid #a78bfa50;border-radius:50%;transform:rotate(-25deg) scaleX(1.35)}
+.orbit.two{width:330px;height:190px;border-color:#68f0c145;transform:rotate(35deg)}
+.biglogo{position:relative;width:180px;height:180px;border-radius:44px;display:grid;place-items:center;background:linear-gradient(135deg,#b9a3ff,#62edc4);color:#0a1020;font-size:5.2rem;font-weight:950;box-shadow:0 25px 80px #8f78fa35;transform:rotate(-8deg)}
+.float{position:absolute;background:#151a29;border:1px solid #333b53;border-radius:16px;padding:14px 16px;box-shadow:0 16px 40px #0005;font-size:.86rem}
+.float small{display:block;color:var(--muted);margin-top:3px}
+.f1{top:35px;right:18px}.f2{bottom:35px;left:18px}
+.section{padding:45px 0}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:24px}
+h2{font-size:clamp(1.8rem,4vw,2.5rem);letter-spacing:-.055em;line-height:1.1;margin:8px 0}
+.sub{color:var(--muted);margin:8px 0 0}
+.searchbar{display:flex;gap:10px;max-width:640px;margin:24px 0 18px}
+.searchbox{flex:1;display:flex;align-items:center;gap:10px;background:#121625;border:1px solid #343b52;border-radius:15px;padding:0 15px;min-width:0}
+.searchbox input{width:100%;min-width:0;background:transparent;border:0;outline:0;color:var(--text);padding:15px 0}
+.searchbox:focus-within{border-color:var(--purple);box-shadow:0 0 0 3px #a78bfa20}
+.filters{display:flex;gap:9px;flex-wrap:wrap;margin:18px 0 25px}
+.filter{background:#121625;border:1px solid #30384d;color:#c6ccdc;padding:9px 13px;border-radius:999px;cursor:pointer;font-size:.88rem}
+.filter.active,.filter:hover{background:#29213f;border-color:var(--purple);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.app{border:1px solid var(--line);background:linear-gradient(150deg,#151a28,#0e111b);border-radius:19px;padding:20px;display:flex;flex-direction:column;min-height:275px;transition:transform .18s,border-color .18s}
+.app:hover{transform:translateY(-3px);border-color:#8170bd}
+.app-top{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.app-icon{width:54px;height:54px;border-radius:17px;display:grid;place-items:center;background:linear-gradient(135deg,#3b82f6,#a78bfa);font-size:1.5rem;font-weight:900}
+.tag{font-size:.67rem;color:var(--mint);border:1px solid #2c6459;border-radius:7px;padding:4px 7px;white-space:nowrap}
+.app h3{font-size:1.08rem;margin:18px 0 5px;letter-spacing:-.02em}
+.app p{color:var(--muted);font-size:.9rem;margin:0 0 18px}
+.meta{color:#8e97ae;font-size:.76rem;margin-top:auto;margin-bottom:14px}
+.app .btn{width:100%;font-size:.88rem;padding:11px;background:#1a2030}
+.app .btn:hover{border-color:var(--purple)}
+.empty{display:none;border:1px dashed #39415a;border-radius:18px;padding:28px;text-align:center;color:var(--muted)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:35px 0}
+.stat{border:1px solid var(--line);border-radius:18px;background:#111522;padding:19px}
+.stat strong{display:block;font-size:1.65rem;letter-spacing:-.05em}
+.stat span{color:var(--muted);font-size:.85rem}
+.notice{border:1px solid #293147;border-radius:17px;padding:17px 19px;color:var(--muted);background:#101421;font-size:.88rem}
+.cta{margin:40px 0 70px;border:1px solid #3a3454;border-radius:25px;padding:32px;background:radial-gradient(ellipse at 100% 0%,#34214d 0,transparent 55%),#111522;display:flex;justify-content:space-between;align-items:center;gap:20px}
+.cta p{color:var(--muted);margin-bottom:0}
+footer{border-top:1px solid #242a3b;padding:28px 0 38px;color:var(--muted);font-size:.85rem}
+.foot{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
+footer a{color:#d8ccff}
+@media(max-width:800px){.hero{grid-template-columns:1fr;padding-top:54px}.hero-art{min-height:280px}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.navlinks{gap:12px}.navlinks a:not(.nav-cta){display:none}}
+@media(max-width:520px){.wrap{width:min(100% - 24px,1120px)}.nav{min-height:66px}.hero{padding-top:43px;gap:25px}h1{font-size:3.15rem}.hero-art{min-height:245px}.biglogo{width:140px;height:140px;font-size:4rem}.orbit{width:210px;height:210px}.orbit.two{width:260px;height:150px}.float{padding:10px 12px;font-size:.76rem}.f1{right:8px;top:18px}.f2{left:8px;bottom:18px}.grid{grid-template-columns:1fr}.app{min-height:245px}.searchbar{gap:7px}.searchbar .btn{padding:10px 12px}.stats{gap:8px}.stat{padding:12px}.stat strong{font-size:1.3rem}.stat span{font-size:.76rem}.cta{padding:23px;align-items:flex-start;flex-direction:column}}
+</style>
 </head>
 <body>
-  <div class="glow glow-a"></div><div class="glow glow-b"></div>
-  <header class="site-header">
-    <a class="brand" href="#top" aria-label="MURUQ.THECH home"><span class="brand-icon">M</span><span class="brand-words">MURUQ<span>.THECH</span><small>SOFTWARE DISCOVERY</small></span></a>
-    <nav class="main-nav" aria-label="Main navigation"><a href="#catalog">Discover</a><a href="#catalog" data-filter-link="android">Android</a><a href="#catalog" data-filter-link="pc">PC Software</a></nav>
-    <a class="header-button" href="#catalog">Explore library <span>↗</span></a>
-  </header>
-
-  <main id="top">
-    <section class="hero">
-      <div class="hero-copy">
-        <div class="eyebrow"><span class="status-dot"></span> YOUR DIGITAL WORLD, IN ONE PLACE</div>
-        <h1>Find tools that<br><span>move you forward.</span></h1>
-        <p class="hero-lead">Explore useful apps, creative software and games. One simple directory, with links to official download sources.</p>
-        <form class="search-box" id="searchForm" role="search">
-          <span class="search-icon" aria-hidden="true">⌕</span>
-          <input id="searchInput" type="search" placeholder="Search apps, games, software…" aria-label="Search the software library" autocomplete="off">
-          <button class="clear-search" id="clearSearch" type="button" aria-label="Clear search">×</button>
-          <button class="search-button" type="submit">Search</button>
-        </form>
-        <div class="hero-perks"><span>✓ Official sources</span><span>✓ Free options</span><span>✓ Mobile friendly</span></div>
-      </div>
-      <div class="hero-visual" aria-label="MURUQ.THECH brand artwork">
-        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
-        <div class="showcase-card"><div class="showcase-mark">M</div><strong>MURUQ<span>.THECH</span></strong><small>DISCOVER · CREATE · PLAY</small><div class="equalizer"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
-        <div class="float-pill pill-android"><b class="pill-symbol purple">▣</b><span><strong>Android Apps</strong><small>Everyday essentials</small></span></div>
-        <div class="float-pill pill-pc"><b class="pill-symbol aqua">⌘</b><span><strong>PC Software</strong><small>Tools for creators</small></span></div>
-        <div class="float-pill pill-games"><b class="pill-symbol orange">▶</b><span><strong>Games</strong><small>Find your next game</small></span></div>
-      </div>
-    </section>
-
-    <section class="feature-strip" aria-label="Directory features"><div><strong>30+</strong><span>apps to explore</span></div><div><strong>05</strong><span>easy categories</span></div><div><strong>100%</strong><span>official-link focus</span></div></section>
-
-    <section class="library" id="catalog">
-      <div class="section-head"><div><div class="eyebrow">THE LIBRARY</div><h2>Explore software</h2><p>Search the collection or choose a category below.</p></div><span id="count" class="result-count">Preparing library…</span></div>
-      <div class="filter-row" aria-label="Filter by category">
-        <button type="button" class="filter active" data-filter="all"><span>✦</span> All apps</button>
-        <button type="button" class="filter" data-filter="android"><span>▣</span> Android</button>
-        <button type="button" class="filter" data-filter="games"><span>▶</span> Games</button>
-        <button type="button" class="filter" data-filter="pc"><span>⌘</span> PC Software</button>
-        <button type="button" class="filter" data-filter="media"><span>♫</span> Media</button>
-        <button type="button" class="filter" data-filter="tools"><span>⚙</span> Tools</button>
-      </div>
-      <div id="appGrid" class="app-grid" aria-live="polite"></div>
-      <div id="emptyState" class="empty-state" hidden><div>⌕</div><h3>No results found</h3><p>Try a different search or switch to another category.</p><button type="button" id="resetButton">Show all apps</button></div>
-      <p class="fine-print">MURUQ.THECH is an independent software directory, not the owner of the listed products. Download buttons open official publisher pages or official stores. Some products may include paid features or regional restrictions.</p>
-    </section>
-
-    <section class="closing-banner"><div class="download-symbol">↓</div><div><div class="eyebrow">READY WHEN YOU ARE</div><h2>Your next useful app is a click away.</h2><p>Open an app’s official page to check details, compatibility and download options.</p></div><a href="#catalog">Browse library ↗</a></section>
-  </main>
-  <footer class="site-footer"><a class="brand" href="#top"><span class="brand-icon">M</span><span class="brand-words">MURUQ<span>.THECH</span><small>SOFTWARE DISCOVERY</small></span></a><p>Independent directory · <span id="year">2026</span></p></footer>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#" aria-label="MURUQ.TECH home"><span class="logo">M</span><span>MURUQ.<span>TECH</span></span></a>
+    <nav class="navlinks" aria-label="Main navigation">
+      <a href="#library">Explore</a><a href="#categories">Categories</a><a href="#about">About</a>
+      <a class="btn primary nav-cta" href="#library">Explore library ↗</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <section class="wrap hero">
+    <div>
+      <div class="eyebrow"><span class="dot"></span> Your digital download hub</div>
+      <h1>Apps and games.<br><span class="gradient">All in one place.</span></h1>
+      <p class="lead">Discover Android apps, games, media tools and PC software through a clean, simple directory. Download links open official publisher pages.</p>
+      <div class="actions"><a class="btn primary" href="#library">Explore the library ↗</a><a class="btn secondary" href="#categories">Browse categories ↓</a></div>
+      <div class="trust"><span>Official-source links</span><span>Easy to explore</span><span>Mobile friendly</span></div>
+    </div>
+    <div class="hero-art" aria-label="MURUQ TECH illustration">
+      <div class="orbit"></div><div class="orbit two"></div><div class="biglogo">M</div>
+      <div class="float f1">▣ Android Apps<small>Mobile downloads</small></div>
+      <div class="float f2">⌘ PC Software<small>Desktop tools</small></div>
+    </div>
+  </section>
+  <section class="wrap section" id="library">
+    <div class="section-head"><div><div class="eyebrow">The library</div><h2>Find your next useful tool.</h2><p class="sub">Search the collection or choose a category below.</p></div></div>
+    <form class="searchbar" id="searchForm" role="search">
+      <label class="searchbox"><span aria-hidden="true">⌕</span><input id="searchInput" type="search" placeholder="Search apps, games or software..." aria-label="Search apps, games or software"></label>
+      <button class="btn primary" type="submit">Search</button>
+    </form>
+    <div class="filters" id="categories" aria-label="Filter categories">
+      <button class="filter active" data-category="All" type="button">✦ All apps</button>
+      <button class="filter" data-category="Android" type="button">▣ Android</button>
+      <button class="filter" data-category="Games" type="button">▶ Games</button>
+      <button class="filter" data-category="PC Software" type="button">⌘ PC Software</button>
+      <button class="filter" data-category="Media" type="button">♫ Media</button>
+      <button class="filter" data-category="Tools" type="button">⚙ Tools</button>
+    </div>
+    <div class="grid" id="appGrid">
+      <article class="app" data-name="VLC for Android video audio player" data-category="Android Media">
+        <div class="app-top"><div class="app-icon">▶</div><span class="tag">ANDROID</span></div><h3>VLC for Android</h3><p>Play a wide range of video and audio formats on your phone.</p><div class="meta">Android · Media</div><a class="btn" href="https://www.videolan.org/vlc/download-android.html" target="_blank" rel="noopener noreferrer">Official download ↗</a>
+      </article>
+      <article class="app" data-name="Firefox Android browser privacy" data-category="Android Tools">
+        <div class="app-top"><div class="app-icon" style="background:linear-gradient(135deg,#7c3aed,#f97316)">🦊</div><span class="tag">ANDROID</span></div><h3>Firefox for Android</h3><p>A mobile browser with privacy tools and extension support.</p><div class="meta">Android · Tools</div><a class="btn" href="https://www.mozilla.org/firefox/browsers/mobile/android/" target="_blank" rel="noopener noreferrer">Official download ↗</a>
+      </article>
+      <article class="app" data-name="Telegram messaging chat file sharing" data-category="Android Tools">
+        <div class="app-top"><div class="app-icon" style="background:linear-gradient(135deg,#38bdf8,#2563eb)">➤</div><span class="tag">ANDROID</span></div><h3>Telegram</h3><p>Messaging, group chats and file sharing.</p><div class="meta">Android · Tools</div><a class="btn" href="https://telegram.org/android" target="_blank" rel="noopener noreferrer">Official download ↗</a>
+      </article>
+      <article class="app" data-name="Krita digital painting illustration artwork" data-category="PC Software Media">
+        <div class="app-top"><div class="app-icon" style="background:linear-gradient(135deg,#2dd4bf,#0f766e)">K</div><span class="tag">PC SOFTWARE</span></div><h3>Krita</h3><p>Create digital paintings, illustrations and artwork.</p><div class="meta">Windows · macOS · Linux · Media</div><a class="btn" href="https://krita.org/en/download/" target="_blank" rel="noopener noreferrer">Official download ↗</a>
+      </article>
+      <article class="app" data-name="VLC Media Player video audio player" data-category="PC Software Media">
+        <div class="app-top"><div class="app-icon">▶</div><span class="tag">PC SOFTWARE</span></div><h3>VLC Media Player</h3><p>A free player for many video and audio formats.</p><div class="meta">Windows · macOS · Linux · Media</div><a class="btn" href="https://www.videolan.org/vlc/" target="_blank" rel="noopener noreferrer">Official download ↗</a>
+      </article>
+      <article class="app" data-name="7-Zip archive compress extract files tool" data-category="PC Software Tools">
+        <div class="app-top"><div class="app-icon" style="background:linear-gradient(135deg,#60a5fa,#2563eb)">7z</div><span class="tag">PC SOFTWARE</span></div><h3>7-Zip</h3><p>Compress and extract archive files with a free utility.</p><div class="meta">Windows · Tools</div><a class="btn" href="https://www.7-zip.org/" target="_blank" rel="noopener noreferrer">Official download ↗</a>
+      </article>
+      <article class="app" data-name="GIMP image editor photo editing creative software" data-category="PC Software Media">
+        <div class="app-top"><div class="app-icon" style="background:linear-gradient(135deg,#fbbf24,#a16207)">G</div><span class="tag">PC SOFTWARE</span></div><h3>GIMP</h3><p>Edit photos and create graphics with a powerful image editor.</p><div class="meta">Windows · macOS · Linux · Media</div><a class="btn" href="https://www.gimp.org/downloads/" target="_blank" rel="noopener noreferrer">Official download ↗</a>
+      </article>
+      <article class="app" data-name="Audacity audio editor recorder music media" data-category="PC Software Media">
+        <div class="app-top"><div class="app-icon" style="background:linear-gradient(135deg,#f472b6,#7c3aed)">♫</div><span class="tag">PC SOFTWARE</span></div><h3>Audacity</h3><p>Record and edit audio, voice and music projects.</p><div class="meta">Windows · macOS · Linux · Media</div><a class="btn" href="https://www.audacityteam.org/download/" target="_blank" rel="noopener noreferrer">Official download ↗</a>
+      </article>
+      <article class="app" data-name="Steam PC games gaming store" data-category="PC Software Games">
+        <div class="app-top"><div class="app-icon" style="background:linear-gradient(135deg,#64748b,#1e293b)">🎮</div><span class="tag">GAMES</span></div><h3>Steam</h3><p>Explore and manage a large library of PC games.</p><div class="meta">Windows · macOS · Linux · Games</div><a class="btn" href="https://store.steampowered.com/about/" target="_blank" rel="noopener noreferrer">Official download ↗</a>
+      </article>
+      <article class="app" data-name="Epic Games Launcher games PC" data-category="PC Software Games">
+        <div class="app-top"><div class="app-icon" style="background:linear-gradient(135deg,#52525b,#18181b)">E</div><span class="tag">GAMES</span></div><h3>Epic Games Launcher</h3><p>Get PC games and manage your Epic Games library.</p><div class="meta">Windows · macOS · Games</div><a class="btn" href="https://store.epicgames.com/en-US/download" target="_blank" rel="noopener noreferrer">Official download ↗</a>
+      </article>
+      <article class="app" data-name="Google Chrome Android browser" data-category="Android Tools">
+        <div class="app-top"><div class="app-icon" style="background:linear-gradient(135deg,#60a5fa,#34d399)">🌐</div><span class="tag">ANDROID</span></div><h3>Google Chrome</h3><p>Browse the web and sync bookmarks across your devices.</p><div class="meta">Android · Tools</div><a class="btn" href="https://www.google.com/chrome/" target="_blank" rel="noopener noreferrer">Official page ↗</a>
+      </article>
+      <article class="app" data-name="Android apps Google Play store" data-category="Android">
+        <div class="app-top"><div class="app-icon" style="background:linear-gradient(135deg,#34d399,#60a5fa)">▶</div><span class="tag">ANDROID</span></div><h3>Google Play</h3><p>Find Android apps and games from the official store.</p><div class="meta">Android · Apps & games</div><a class="btn" href="https://play.google.com/store" target="_blank" rel="noopener noreferrer">Open official store ↗</a>
+      </article>
+    </div>
+    <div class="empty" id="emptyState">No matching apps found. Try another search or category.</div>
+    <div class="stats">
+      <div class="stat"><strong id="appCount">12+</strong><span>Useful listings</span></div>
+      <div class="stat"><strong>05</strong><span>Easy categories</span></div>
+      <div class="stat"><strong>100%</strong><span>Official-link focus</span></div>
+    </div>
+    <div class="notice" id="about"><strong style="color:#f1efff">A quick note:</strong> MURUQ.TECH is an independent software directory, not the owner of the listed products. Download buttons lead to official publisher pages or official stores. Availability, paid features and regional restrictions may vary.</div>
+  </section>
+  <section class="wrap cta">
+    <div><div class="eyebrow">Ready when you are</div><h2>Your next useful app is a click away.</h2><p>Open an official page to check details, compatibility and download options.</p></div>
+    <a class="btn primary" href="#library">Browse library ↗</a>
+  </section>
+</main>
+<footer><div class="wrap foot"><a class="brand" href="#"><span class="logo">M</span><span>MURUQ.<span>TECH</span></span></a><span>Independent directory · 2026</span><span>Discover · Create · Play</span></div></footer>
+<script>
+(function(){
+  const input=document.getElementById('searchInput');
+  const form=document.getElementById('searchForm');
+  const cards=[...document.querySelectorAll('.app')];
+  const buttons=[...document.querySelectorAll('.filter')];
+  const empty=document.getElementById('emptyState');
+  let category='All';
+  function filterCards(){
+    const q=input.value.trim().toLowerCase();
+    let visible=0;
+    cards.forEach(card=>{
+      const matchesText=(card.dataset.name+' '+card.innerText).toLowerCase().includes(q);
+      const cats=card.dataset.category.split(' ');
+      const matchesCategory=category==='All'||cats.includes(category);
+      const show=matchesText&&matchesCategory;
+      card.hidden=!show;
+      if(show) visible++;
+    });
+    empty.style.display=visible?'none':'block';
+  }
+  form.addEventListener('submit',e=>{e.preventDefault();filterCards();document.getElementById('library').scrollIntoView({behavior:'smooth'});});
+  input.addEventListener('input',filterCards);
+  buttons.forEach(button=>button.addEventListener('click',()=>{
+    category=button.dataset.category;
+    buttons.forEach(b=>b.classList.toggle('active',b===button));
+    filterCards();
+  }));
+  filterCards();
+})();
+</script>
 </body>
 </html>
