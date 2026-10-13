@@ -1,68 +1,227 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#080a12">
-  <meta name="description" content="Discover Android apps, PC software, games, media and creative tools on MURUQ.THECH.">
-  <title>MURUQ.THECH — Discover Great Software</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <script defer src="render.js"></script>
-  <script defer src="input.js"></script>
-</head>
-<body>
-  <div class="glow glow-a"></div><div class="glow glow-b"></div>
-  <header class="site-header">
-    <a class="brand" href="#top" aria-label="MURUQ.THECH home"><span class="brand-icon">M</span><span class="brand-words">MURUQ<span>.THECH</span><small>SOFTWARE DISCOVERY</small></span></a>
-    <nav class="main-nav" aria-label="Main navigation"><a href="#catalog">Discover</a><a href="#catalog" data-filter-link="android">Android</a><a href="#catalog" data-filter-link="pc">PC Software</a></nav>
-    <a class="header-button" href="#catalog">Explore library <span>↗</span></a>
-  </header>
+window.MURUQ = window.MURUQ || {};
 
-  <main id="top">
-    <section class="hero">
-      <div class="hero-copy">
-        <div class="eyebrow"><span class="status-dot"></span> YOUR DIGITAL WORLD, IN ONE PLACE</div>
-        <h1>Find tools that<br><span>move you forward.</span></h1>
-        <p class="hero-lead">Explore useful apps, creative software and games. One simple directory, with links to official download sources.</p>
-        <form class="search-box" id="searchForm" role="search">
-          <span class="search-icon" aria-hidden="true">⌕</span>
-          <input id="searchInput" type="search" placeholder="Search apps, games, software…" aria-label="Search the software library" autocomplete="off">
-          <button class="clear-search" id="clearSearch" type="button" aria-label="Clear search">×</button>
-          <button class="search-button" type="submit">Search</button>
-        </form>
-        <div class="hero-perks"><span>✓ Official sources</span><span>✓ Free options</span><span>✓ Mobile friendly</span></div>
+window.MURUQ.apps = [
+  {
+    name: "Google Chrome",
+    platform: "android",
+    category: "tools",
+    symbol: "🌐",
+    color: "#4285f4",
+    description: "Browse the web with Google's popular mobile browser.",
+    device: "Android",
+    url: "https://play.google.com/store/apps/details?id=com.android.chrome"
+  },
+  {
+    name: "Firefox",
+    platform: "android",
+    category: "tools",
+    symbol: "🦊",
+    color: "#e87524",
+    description: "A browser with privacy features and useful extensions.",
+    device: "Android",
+    url: "https://www.mozilla.org/firefox/browsers/mobile/android/"
+  },
+  {
+    name: "Telegram",
+    platform: "android",
+    category: "tools",
+    symbol: "➤",
+    color: "#229ed9",
+    description: "Messaging, groups and file sharing.",
+    device: "Android",
+    url: "https://telegram.org/android"
+  },
+  {
+    name: "VLC for Android",
+    platform: "android",
+    category: "media",
+    symbol: "▶",
+    color: "#e76b26",
+    description: "Play a wide range of video and audio formats.",
+    device: "Android",
+    url: "https://www.videolan.org/vlc/download-android.html"
+  },
+  {
+    name: "WhatsApp",
+    platform: "android",
+    category: "tools",
+    symbol: "☎",
+    color: "#20b96a",
+    description: "Send messages and make calls with people you know.",
+    device: "Android",
+    url: "https://www.whatsapp.com/android"
+  },
+  {
+    name: "CapCut",
+    platform: "android",
+    category: "media",
+    symbol: "✂",
+    color: "#343b4b",
+    description: "Create and edit videos on your phone.",
+    device: "Android",
+    url: "https://www.capcut.com/"
+  },
+  {
+    name: "Krita",
+    platform: "pc",
+    category: "media",
+    symbol: "K",
+    color: "#269e91",
+    description: "Create digital paintings and illustrations.",
+    device: "Windows / PC",
+    url: "https://krita.org/en/download/"
+  },
+  {
+    name: "VLC Media Player",
+    platform: "pc",
+    category: "media",
+    symbol: "▶",
+    color: "#e76b26",
+    description: "Play many video and audio formats on your computer.",
+    device: "Windows / PC",
+    url: "https://www.videolan.org/vlc/"
+  },
+  {
+    name: "7-Zip",
+    platform: "pc",
+    category: "tools",
+    symbol: "7z",
+    color: "#337ac3",
+    description: "Compress and extract files.",
+    device: "Windows / PC",
+    url: "https://www.7-zip.org/"
+  },
+  {
+    name: "GIMP",
+    platform: "pc",
+    category: "media",
+    symbol: "G",
+    color: "#9a743a",
+    description: "Edit images and create graphics.",
+    device: "Windows / PC",
+    url: "https://www.gimp.org/downloads/"
+  },
+  {
+    name: "LibreOffice",
+    platform: "pc",
+    category: "tools",
+    symbol: "▤",
+    color: "#2672b5",
+    description: "Create documents, spreadsheets and presentations.",
+    device: "Windows / PC",
+    url: "https://www.libreoffice.org/download/download-libreoffice/"
+  },
+  {
+    name: "Godot Engine",
+    platform: "pc",
+    category: "games",
+    symbol: "◆",
+    color: "#347ac2",
+    description: "Build your own 2D and 3D games.",
+    device: "Windows / PC",
+    url: "https://godotengine.org/download/"
+  },
+  {
+    name: "Blender",
+    platform: "pc",
+    category: "media",
+    symbol: "◉",
+    color: "#bd6b2a",
+    description: "Create 3D models, animation and visual effects.",
+    device: "Windows / PC",
+    url: "https://www.blender.org/download/"
+  },
+  {
+    name: "Audacity",
+    platform: "pc",
+    category: "media",
+    symbol: "♫",
+    color: "#366bc1",
+    description: "Record and edit audio on your computer.",
+    device: "Windows / PC",
+    url: "https://www.audacityteam.org/download/"
+  },
+  {
+    name: "Epic Games Store",
+    platform: "pc",
+    category: "games",
+    symbol: "E",
+    color: "#303642",
+    description: "Explore PC games through the official game store.",
+    device: "Windows / PC",
+    url: "https://store.epicgames.com/"
+  }
+];
+
+window.MURUQ.escapeHTML = function(value) {
+  return String(value).replace(/[&<>"']/g, char => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#039;"
+  })[char]);
+};
+
+window.MURUQ.renderCatalog = function() {
+  const grid = document.getElementById("appGrid");
+  const count = document.getElementById("count");
+  const empty = document.getElementById("emptyState");
+
+  if (!grid) return;
+
+  const term = (window.MURUQ.searchTerm || "").toLowerCase();
+  const filter = window.MURUQ.activeFilter || "all";
+  const safe = window.MURUQ.escapeHTML;
+
+  const results = window.MURUQ.apps.filter(app => {
+    const matchesFilter =
+      filter === "all" ||
+      app.platform === filter ||
+      app.category === filter;
+
+    const searchable =
+      `${app.name} ${app.description} ${app.platform} ${app.category} ${app.device}`
+        .toLowerCase();
+
+    return matchesFilter && searchable.includes(term);
+  });
+
+  grid.innerHTML = results.map(app => `
+    <article class="app-card">
+      <div class="card-head">
+        <div class="app-logo" style="--logo:${safe(app.color)}">
+          ${safe(app.symbol)}
+        </div>
+        <span class="tag">
+          ${app.platform === "android" ? "ANDROID" : "PC SOFTWARE"}
+        </span>
       </div>
-      <div class="hero-visual" aria-label="MURUQ.THECH brand artwork">
-        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
-        <div class="showcase-card"><div class="showcase-mark">M</div><strong>MURUQ<span>.THECH</span></strong><small>DISCOVER · CREATE · PLAY</small><div class="equalizer"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
-        <div class="float-pill pill-android"><b class="pill-symbol purple">▣</b><span><strong>Android Apps</strong><small>Everyday essentials</small></span></div>
-        <div class="float-pill pill-pc"><b class="pill-symbol aqua">⌘</b><span><strong>PC Software</strong><small>Tools for creators</small></span></div>
-        <div class="float-pill pill-games"><b class="pill-symbol orange">▶</b><span><strong>Games</strong><small>Find your next game</small></span></div>
+      <h3>${safe(app.name)}</h3>
+      <p>${safe(app.description)}</p>
+      <div class="meta">
+        <span>${safe(app.device)}</span>
+        <span>${safe(app.category.toUpperCase())}</span>
       </div>
-    </section>
+      <a class="download"
+         href="${safe(app.url)}"
+         target="_blank"
+         rel="noopener noreferrer">
+        Official download <span>↗</span>
+      </a>
+    </article>
+  `).join("");
 
-    <section class="feature-strip" aria-label="Directory features"><div><strong>30+</strong><span>apps to explore</span></div><div><strong>05</strong><span>easy categories</span></div><div><strong>100%</strong><span>official-link focus</span></div></section>
+  if (count) {
+    count.textContent = `${results.length} ${results.length === 1 ? "item" : "items"}`;
+  }
 
-    <section class="library" id="catalog">
-      <div class="section-head"><div><div class="eyebrow">THE LIBRARY</div><h2>Explore software</h2><p>Search the collection or choose a category below.</p></div><span id="count" class="result-count">Preparing library…</span></div>
-      <div class="filter-row" aria-label="Filter by category">
-        <button type="button" class="filter active" data-filter="all"><span>✦</span> All apps</button>
-        <button type="button" class="filter" data-filter="android"><span>▣</span> Android</button>
-        <button type="button" class="filter" data-filter="games"><span>▶</span> Games</button>
-        <button type="button" class="filter" data-filter="pc"><span>⌘</span> PC Software</button>
-        <button type="button" class="filter" data-filter="media"><span>♫</span> Media</button>
-        <button type="button" class="filter" data-filter="tools"><span>⚙</span> Tools</button>
-      </div>
-      <div id="appGrid" class="app-grid" aria-live="polite"></div>
-      <div id="emptyState" class="empty-state" hidden><div>⌕</div><h3>No results found</h3><p>Try a different search or switch to another category.</p><button type="button" id="resetButton">Show all apps</button></div>
-      <p class="fine-print">MURUQ.THECH is an independent software directory, not the owner of the listed products. Download buttons open official publisher pages or official stores. Some products may include paid features or regional restrictions.</p>
-    </section>
-
-    <section class="closing-banner"><div class="download-symbol">↓</div><div><div class="eyebrow">READY WHEN YOU ARE</div><h2>Your next useful app is a click away.</h2><p>Open an app’s official page to check details, compatibility and download options.</p></div><a href="#catalog">Browse library ↗</a></section>
-  </main>
-  <footer class="site-footer"><a class="brand" href="#top"><span class="brand-icon">M</span><span class="brand-words">MURUQ<span>.THECH</span><small>SOFTWARE DISCOVERY</small></span></a><p>Independent directory · <span id="year">2026</span></p></footer>
-</body>
-    </html>
+  if (empty) empty.hidden = results.length !== 0;
+  grid.hidden = results.length === 0;
+};
+document.addEventListener("DOMContentLoaded", () => {
+  window.MURUQ.renderCatalog();
+});
+document.addEventListener("DOMContentLoaded", () => {
+  window.MURUQ.renderCatalog();
+});
