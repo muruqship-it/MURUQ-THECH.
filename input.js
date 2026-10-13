@@ -1,49 +1,73 @@
-// MURUQ.THECH — search and filter controls
-window.MURUQ = window.MURUQ || {};
-window.MURUQ.activeFilter = "all";
-window.MURUQ.searchTerm = "";
 
-document.addEventListener("DOMContentLoaded", () => {
-  const search = document.getElementById("searchInput");
-  const clear = document.getElementById("clearSearch");
+(function () {
+  function setupInputs() {
+    const searchInput = document.getElementById("searchInput");
+    const clearSearch = document.getElementById("clearSearch");
+    const showAll = document.getElementById("showAll");
+    const filters = document.querySelectorAll("[data-filter]");
 
-  if (search) {
-    search.addEventListener("input", () => {
-      window.MURUQ.searchTerm = search.value.trim().toLowerCase();
-      if (window.MURUQ.renderCatalog) {
-        window.MURUQ.renderCatalog();
-      }
-    });
-  }
+    function applyFilter(category) {
+      if (!window.MURUQ) return;
 
-  if (clear && search) {
-    clear.addEventListener("click", () => {
-      search.value = "";
-      window.MURUQ.searchTerm = "";
-      search.focus();
+      window.MURUQ.activeFilter = category;
 
-      if (window.MURUQ.renderCatalog) {
-        window.MURUQ.renderCatalog();
-      }
-    });
-  }
-
-  document.querySelectorAll(".filter").forEach(button => {
-    button.addEventListener("click", () => {
-      window.MURUQ.activeFilter = button.dataset.filter || "all";
-
-      document.querySelectorAll(".filter").forEach(item => {
-        item.classList.toggle("active", item === button);
+      filters.forEach(function (button) {
+        const active = button.dataset.filter === category;
+        button.classList.toggle("active", active);
+        button.setAttribute("aria-pressed", String(active));
       });
 
-      if (window.MURUQ.renderCatalog) {
+      if (typeof window.MURUQ.renderCatalog === "function") {
         window.MURUQ.renderCatalog();
       }
-    });
-  });
+    }
 
-  const year = document.getElementById("year");
-  if (year) {
-    year.textContent = new Date().getFullYear();
+    if (searchInput) {
+      searchInput.addEventListener("input", function () {
+        if (!window.MURUQ) return;
+        window.MURUQ.searchTerm = searchInput.value.trim();
+        window.MURUQ.renderCatalog();
+      });
+    }
+
+    if (clearSearch) {
+      clearSearch.addEventListener("click", function () {
+        if (searchInput) {
+          searchInput.value = "";
+          searchInput.focus();
+        }
+
+        if (window.MURUQ) {
+          window.MURUQ.searchTerm = "";
+          window.MURUQ.renderCatalog();
+        }
+      });
+    }
+
+    filters.forEach(function (button) {
+      button.addEventListener("click", function () {
+        applyFilter(button.dataset.filter);
+      });
+    });
+
+    if (showAll) {
+      showAll.addEventListener("click", function () {
+        if (searchInput) searchInput.value = "";
+        if (window.MURUQ) window.MURUQ.searchTerm = "";
+        applyFilter("all");
+      });
+    }
+
+    document.querySelectorAll("[data-jump-filter]").forEach(function (link) {
+      link.addEventListener("click", function () {
+        applyFilter(link.dataset.jumpFilter);
+      });
+    });
   }
-});
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", setupInputs);
+  } else {
+    setupInputs();
+  }
+})();
