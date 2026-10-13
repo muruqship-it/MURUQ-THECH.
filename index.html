@@ -3,174 +3,133 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#080b12">
-  <meta name="description" content="MURUQ.TECH — Discover apps, games, software and digital tools.">
+  <meta name="description" content="MURUQ.TECH — Discover Android apps, PC software, media tools and games.">
   <title>MURUQ.TECH | Digital World</title>
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-  <header class="header">
-    <div class="container nav-wrap">
-      <a class="logo" href="#home">MURUQ<span>.TECH</span></a>
 
-      <button id="menuBtn" class="menu-btn"
-        aria-label="Open navigation" aria-expanded="false">☰</button>
+<header class="header">
+  <div class="container nav-wrap">
+    <a class="logo" href="#home">MURUQ<span>.TECH</span></a>
 
-      <nav id="nav" class="nav">
-        <a href="#home">Home</a>
-        <a href="#apps">Apps & Games</a>
-        <a href="#software">Software</a>
-        <a href="#store">Store</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
-  </header>
+    <button id="menuBtn" class="menu-btn"
+      aria-label="Toggle navigation" aria-expanded="false">☰</button>
 
-  <main>
-    <section id="home" class="hero">
-      <div class="container">
-        <span class="tag">WELCOME TO MURUQ.TECH</span>
-        <h1>Your Digital World.<br><span>One Place.</span></h1>
-        <p>
-          Discover useful apps, games, computer software
-          and digital tools in one simple place.
-        </p>
-        <div class="hero-actions">
-          <a class="btn primary" href="#apps">Explore Apps ↗</a>
-          <a class="btn" href="#software">Browse Software</a>
-        </div>
-      </div>
-    </section>
+    <nav id="nav" class="nav">
+      <a href="#home">Home</a>
+      <a href="#catalog">Apps & Software</a>
+      <a href="#android" data-filter-link="android">Android</a>
+      <a href="#games" data-filter-link="games">Games</a>
+      <a href="#pc" data-filter-link="pc">PC Software</a>
+      <a href="#media" data-filter-link="media">Media</a>
+      <a href="#tools" data-filter-link="tools">Tools</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
 
-    <section id="apps" class="section">
-      <div class="container">
-        <div class="section-heading">
-          <span class="tag">DISCOVER</span>
-          <h2>Apps & Games</h2>
-          <p>Find your favourite apps and games.</p>
-        </div>
-
-        <div class="search-wrap">
-          <input id="search" type="search"
-            placeholder="Search apps and games..."
-            aria-label="Search apps and games">
-        </div>
-
-        <div id="filters" class="filters">
-          <button class="btn active" data-filter="All">All</button>
-          <button class="btn" data-filter="Social">Social</button>
-          <button class="btn" data-filter="Media">Media</button>
-          <button class="btn" data-filter="Tools">Tools</button>
-          <button class="btn" data-filter="Games">Games</button>
-          <button class="btn" data-filter="AI">AI</button>
-        </div>
-
-        <p>Apps found: <strong id="appCount">0</strong></p>
-        <div id="appCards" class="cards"></div>
-        <p id="empty" class="hidden">No apps found. Try another search.</p>
-      </div>
-    </section>
-
-    <section id="software" class="section section-alt">
-      <div class="container">
-        <div class="section-heading">
-          <span class="tag">FOR YOUR COMPUTER</span>
-          <h2>Software Library</h2>
-          <p>Explore useful computer programs.</p>
-        </div>
-        <div id="softwareCards" class="cards"></div>
-      </div>
-    </section>
-
-    <section id="windows" class="section">
-      <div class="container">
-        <div class="section-heading">
-          <span class="tag">WINDOWS</span>
-          <h2>Windows Tools</h2>
-          <p>Visit official websites for Windows software and tools.</p>
-        </div>
-
-        <div class="cards">
-          <article class="card">
-            <div class="app-icon">🖥️</div>
-            <h3>Microsoft Windows</h3>
-            <p>Official Windows information and downloads.</p>
-            <a class="btn primary"
-              href="https://www.microsoft.com/software-download/"
-              target="_blank" rel="noopener noreferrer">Visit Microsoft ↗</a>
-          </article>
-
-          <article class="card">
-            <div class="app-icon">🛡️</div>
-            <h3>Microsoft Security</h3>
-            <p>Learn about Windows security and protection.</p>
-            <a class="btn primary"
-              href="https://www.microsoft.com/security"
-              target="_blank" rel="noopener noreferrer">Explore ↗</a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="store" class="section section-alt">
-      <div class="container">
-        <div class="section-heading">
-          <span class="tag">OFFICIAL PLATFORMS</span>
-          <h2>App Store</h2>
-          <p>Find apps from their official platforms.</p>
-        </div>
-        <div id="storeCards" class="cards"></div>
-      </div>
-    </section>
-
-    <section id="about" class="section">
-      <div class="container">
-        <div class="section-heading">
-          <span class="tag">ABOUT US</span>
-          <h2>About MURUQ.TECH</h2>
-          <p>
-            MURUQ.TECH is a digital discovery website designed
-            to help people explore apps, games, software
-            and useful online resources.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="section section-alt">
-      <div class="container">
-        <div class="section-heading">
-          <span class="tag">GET IN TOUCH</span>
-          <h2>Contact Us</h2>
-          <p>Have a question or suggestion? Send us an email.</p>
-          <a class="btn primary"
-            id="emailButton"
-            href="mailto:Alicabdilaahi110@gmail.com">
-            Email MURUQ.TECH ↗
-          </a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
+<main>
+  <section id="home" class="hero">
     <div class="container">
-      <a class="logo" href="#home">MURUQ<span>.TECH</span></a>
-      <p>Discover more. Learn more. Do more.</p>
-      <p>
-        Contact:
-        <a id="footerEmail"
-          href="mailto:Alicabdilaahi110@gmail.com">
-          Alicabdilaahi110@gmail.com
-        </a>
-      </p>
-      <p>© <span id="year"></span> MURUQ.TECH. All rights reserved.</p>
+      <span class="tag">WELCOME TO MURUQ.TECH</span>
+      <h1>Your Digital World.<br><span>One Place.</span></h1>
+      <p>Discover Android apps, computer software, games and digital tools.</p>
+      <div class="hero-actions">
+        <a class="btn primary" href="#catalog">Explore Catalog ↗</a>
+        <a class="btn" href="#about">About Us</a>
+      </div>
     </div>
-  </footer>
+  </section>
 
-  <script src="script.js"></script>
+  <section id="catalog" class="section">
+    <div class="container">
+      <div class="section-heading">
+        <span class="tag">DISCOVER</span>
+        <h2>Apps & Software Library</h2>
+        <p>Search the catalog or choose a category below.</p>
+      </div>
+
+      <form id="searchForm" class="search-wrap">
+        <input id="searchInput" type="search"
+          placeholder="Search apps, games and software..."
+          aria-label="Search catalog">
+        <button class="btn primary" type="submit">Search</button>
+        <button class="btn" id="clearSearch" type="button">Clear</button>
+      </form>
+
+      <div id="filters" class="filters">
+        <button class="btn active" type="button" data-filter="all">All</button>
+        <button class="btn" type="button" data-filter="android">Android</button>
+        <button class="btn" type="button" data-filter="games">Games</button>
+        <button class="btn" type="button" data-filter="pc">PC Software</button>
+        <button class="btn" type="button" data-filter="media">Media</button>
+        <button class="btn" type="button" data-filter="tools">Tools</button>
+      </div>
+
+      <div class="catalog-status">
+        <p id="count" aria-live="polite">Loading catalog...</p>
+        <button class="btn" id="resetButton" type="button">Reset filters</button>
+      </div>
+
+      <div id="appGrid" class="app-grid"></div>
+      <p id="emptyState" hidden>No results found. Try another search or category.</p>
+    </div>
+  </section>
+
+  <section id="about" class="section section-alt">
+    <div class="container section-heading">
+      <span class="tag">ABOUT US</span>
+      <h2>About MURUQ.TECH</h2>
+      <p>MURUQ.TECH helps visitors discover apps, games, computer software and useful digital resources from official websites.</p>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <div class="container section-heading">
+      <span class="tag">GET IN TOUCH</span>
+      <h2>Contact Us</h2>
+      <p>Have a question or suggestion? Send us an email.</p>
+      <a class="btn primary" href="mailto:Alicabdilaahi110@gmail.com">Email MURUQ.TECH ↗</a>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <a class="logo" href="#home">MURUQ<span>.TECH</span></a>
+    <p>Discover more. Learn more. Do more.</p>
+    <p>Contact: <a href="mailto:Alicabdilaahi110@gmail.com">Alicabdilaahi110@gmail.com</a></p>
+    <p>© <span id="year"></span> MURUQ.TECH. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="render.js"></script>
+<script src="input.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const menuBtn = document.getElementById("menuBtn");
+  const nav = document.getElementById("nav");
+
+  if (menuBtn && nav) {
+    menuBtn.addEventListener("click", () => {
+      const open = nav.classList.toggle("open");
+      menuBtn.setAttribute("aria-expanded", String(open));
+    });
+
+    nav.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        nav.classList.remove("open");
+        menuBtn.setAttribute("aria-expanded", "false");
+      });
+    });
+  }
+});
+</script>
+
 </body>
 </html>
