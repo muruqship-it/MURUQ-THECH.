@@ -63,15 +63,18 @@ footer>a:last-child{color:var(--cyan)}
 @media(max-width:900px){.app-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.toolbar{align-items:stretch}.search-box{max-width:none}.filters{justify-content:flex-start}}
 @media(max-width:640px){.topbar{height:60px}.menu-toggle{display:block}.nav-links{display:none;position:absolute;top:59px;left:0;right:0;background:#0d1425;padding:16px 20px;border-bottom:1px solid var(--line);flex-direction:column;gap:14px}.nav-links.open{display:flex}.hero{padding:42px 17px 32px}.hero h1{letter-spacing:-1px}.hero p{font-size:12px}.catalog-section{padding-top:22px}.app-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.app-card{padding:11px;border-radius:16px}.app-icon{width:42px;height:42px;flex-basis:42px;font-size:21px}.app-info h3{font-size:13px}.app-description{font-size:10px}.download-link{min-width:100%;padding:9px 7px}.card-foot{align-items:stretch}.section-heading h2{font-size:18px}.info-grid{grid-template-columns:1fr}.filters{gap:6px}.filter{padding:7px 10px}}
 @media(max-width:360px){.app-grid{grid-template-columns:1fr}.app-card{min-height:0}.download-link{min-width:0}}
-<section class="ceo-section">
-  <img
-    src="./ceo.jpg"
-    alt="MURUQ.TECH CEO"
-    class="ceo-photo"
-  >
-  <h2>MURUQ.TECH</h2>
-  <p>Your Digital World</p>
-  <a href="mailto:Alicabdilaahi110@gmail.com">
-    Contact Me
-  </a>
-</section>
+.ceo-section {
+  text-align: center;
+  padding: 60px 20px;
+  background: #f8fafc;
+  color: #172033;
+}
+
+.ceo-photo {
+  width: 220px;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto 20px;
+}
