@@ -70,15 +70,6 @@ footer>a:last-child{color:var(--cyan)}
   color: #172033;
 }
 
-.ceo-photo {
-  width: 220px;
-  height: 260px;
-  object-fit: cover;
-  border-radius: 50%;
-  display: block;
-  margin: 0 auto 20px;
-}
-
 .ceo-section {
   text-align: center;
   padding: 60px 20px;
