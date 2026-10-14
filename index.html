@@ -76,13 +76,4 @@ const software=[
 {name:"Blender",desc:"3D creation and animation.",icon:"https://cdn.simpleicons.org/blender/F5792A",emoji:"🧊",url:"https://www.blender.org/"},
 {name:"LibreOffice",desc:"Free office productivity suite.",icon:"https://cdn.simpleicons.org/libreoffice/18A303",emoji:"📄",url:"https://www.libreoffice.org/"},
 {name:"Audacity",desc:"Audio recording and editing.",icon:"https://cdn.simpleicons.org/audacity/0000CC",emoji:"🎧",url:"https://www.audacityteam.org/"}
-];
-const categories=["All Apps","Games","Social","Media","Tools","Android","PC"];
-let current="All Apps";
-const filters=document.getElementById("filters");
-categories.forEach(c=>{const b=document.createElement("button");b.textContent=c;if(c===current)b.classList.add("active");b.onclick=()=>{current=c;filters.querySelectorAll("button").forEach(x=>x.classList.toggle("active",x.textContent===c));renderApps()};filters.appendChild(b)});
-function card(a,softwareCard=false){const d=document.createElement("article");d.className=softwareCard?"softcard":"app";const icon=a.icon?`<img src="${a.icon}" alt="${a.name} logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="emoji" style="display:none">${a.emoji||"📦"}</span>`:`<span class="emoji">${a.emoji||"📦"}</span>`;d.innerHTML=`<div class="appicon">${icon}</div>${softwareCard?"":`<span class="tag">${a.cat}</span>`}<h3>${a.name}</h3><p>${a.desc}</p><a class="btn" href="${a.url}" target="_blank" rel="noopener noreferrer">${softwareCard?"Official download ↗":a.label+" ↗"}</a>${a.info?`<a class="btn secondary" href="${a.info}" target="_blank" rel="noopener noreferrer">Info ↗</a>`:""}`;return d}
-function renderApps(){const q=document.getElementById("search").value.toLowerCase();const grid=document.getElementById("appGrid");grid.innerHTML="";apps.filter(a=>(current==="All Apps"||current==="Android"||current==="PC"&&a.cat==="Tools"||a.cat===current)&&(`${a.name} ${a.desc} ${a.cat}`).toLowerCase().includes(q)).forEach(a=>grid.appendChild(card(a)))}
-document.getElementById("search").addEventListener("input",renderApps);renderApps();software.forEach(a=>document.getElementById("softwareGrid").appendChild(card(a,true)));
-</script>
-</body></html> 
+]
