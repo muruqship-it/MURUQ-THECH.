@@ -89,16 +89,3 @@ footer>a:last-child{color:var(--cyan)}
   margin: 0 auto 20px;
   background: #e5e7eb;
 }
-
-.ceo-label {
-  color: #64748b;
-  margin: 0 0 10px;
-}
-
-.ceo-description {
-  max-width: 650px;
-  margin: 15px auto;
-  font-size: 20px;
-  line-height: 1.7;
-  color: #475569;
-}
