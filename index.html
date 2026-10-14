@@ -1,79 +1,107 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>MURUQ.TECH — Your Digital World</title>
-<meta name="description" content="Discover apps, games and software from official sources.">
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#080b16"><meta name="description" content="MURUQ.TECH apps, games and software"><title>MURUQ.TECH — Home</title>
 <style>
-:root{--bg:#070a16;--panel:#11182b;--line:#26324a;--text:#f4f7ff;--muted:#a5b0c5;--cyan:#24d5df;--purple:#9860ff}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif;line-height:1.55}
-a{color:inherit;text-decoration:none}.top{position:sticky;top:0;z-index:5;background:#080c19ee;border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}
-.nav{max-width:1150px;margin:auto;padding:14px 22px;display:flex;align-items:center;justify-content:space-between;gap:18px}
-.brand{display:flex;align-items:center;gap:12px;font-weight:800;font-size:22px}.mark{width:56px;height:56px;border-radius:17px;display:grid;place-items:center;font-size:34px;background:linear-gradient(135deg,var(--purple),var(--cyan));box-shadow:0 8px 24px #24d5df25}.brand small{display:block;color:#9ba9c5;letter-spacing:3px;font-size:10px;margin-top:2px}
-nav{display:flex;gap:18px;flex-wrap:wrap;font-size:13px;color:#c6cee0}nav a:hover{color:var(--cyan)}
-.hero{padding:74px 20px 52px;text-align:center;background:radial-gradient(ellipse at 20% 15%,#451b72 0,transparent 42%),radial-gradient(ellipse at 80% 65%,#064c5a 0,transparent 44%)}
-.pill{display:inline-block;border:1px solid #34435e;border-radius:99px;padding:7px 14px;color:#b8c7e2;font-size:11px;letter-spacing:2px}
-h1{font-size:clamp(38px,7vw,66px);line-height:1.04;margin:24px auto 16px;max-width:750px;letter-spacing:-2px}h1 span{background:linear-gradient(90deg,var(--cyan),#8c78ff);color:transparent;background-clip:text}
-.hero p{color:var(--muted);max-width:640px;margin:0 auto 24px}.wrap{max-width:1150px;margin:auto;padding:30px 22px}
-.searchrow{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}
-.search{flex:1;min-width:220px;display:flex;gap:9px;border:1px solid #2fbdcf;border-radius:14px;background:#10182a;padding:13px 16px}.search input{width:100%;border:0;outline:0;background:transparent;color:white;font-size:15px}
-.filters{display:flex;gap:8px;flex-wrap:wrap}.filters button{background:#11182b;color:#d8e0f0;border:1px solid var(--line);border-radius:99px;padding:10px 14px;cursor:pointer}.filters button.active,.filters button:hover{background:linear-gradient(90deg,var(--cyan),#8d5cff);color:#06101c;border-color:transparent}
-.section-title{font-size:25px;margin:28px 0 5px}.hint{color:var(--muted);font-size:13px;margin:0 0 18px}
-.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
-.app{background:linear-gradient(145deg,#141d31,#0e1424);border:1px solid var(--line);border-radius:20px;padding:17px;display:flex;flex-direction:column;min-height:250px;box-shadow:0 8px 22px #0002}
-.appicon{width:62px;height:62px;border-radius:16px;background:#f7f9ff;display:grid;place-items:center;overflow:hidden;margin-bottom:12px}.appicon img{width:43px;height:43px;object-fit:contain}.emoji{font-size:35px}
-.tag{font-size:11px;color:#9debf0;border:1px solid #365066;border-radius:99px;padding:4px 9px;align-self:flex-start}.app h3{font-size:17px;margin:12px 0 5px}.app p{font-size:13px;color:var(--muted);margin:0 0 18px;flex:1}
-.btn{display:block;text-align:center;border-radius:10px;padding:12px 10px;background:linear-gradient(100deg,var(--cyan),var(--purple));color:#07111f;font-weight:800;font-size:13px}.btn.secondary{margin-top:8px;background:#18233b;color:#edf4ff;border:1px solid #33425e}
-.feature{margin:32px 0;border:1px solid var(--line);border-radius:20px;padding:26px;background:linear-gradient(110deg,#17142d,#102934);display:flex;align-items:center;justify-content:space-between;gap:20px}.feature p{color:var(--muted)}
-.software{margin-top:40px}.softcard{background:#11182b;border:1px solid var(--line);padding:18px;border-radius:16px}.softcard h3{margin:8px 0}.softcard p{font-size:13px;color:var(--muted)}
-.about{margin-top:38px;border-top:1px solid var(--line);padding-top:40px}.aboutgrid{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center}
-.ceo-section{text-align:center;padding:26px 20px;background:#f8fafc;color:#172033;border-radius:20px}.ceo-photo{width:220px;height:260px;object-fit:cover;border-radius:50%;display:block;margin:0 auto 20px;background:#dce4ef}.photo-note{font-size:12px;color:#64748b}
-.contact{border-top:1px solid var(--line);margin-top:36px;padding:35px 0}.contact a{display:inline-block;padding:13px 18px;border-radius:12px;background:linear-gradient(90deg,var(--cyan),var(--purple));color:#07111f;font-weight:bold}
-footer{border-top:1px solid var(--line);padding:28px 22px;color:var(--muted);font-size:12px}.foot{max-width:1150px;margin:auto;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
-@media(max-width:850px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}nav{gap:10px}.aboutgrid{grid-template-columns:1fr}}
-@media(max-width:480px){.nav{padding:10px 14px}.brand{font-size:18px}.mark{width:48px;height:48px}nav{display:none}.hero{padding:52px 18px 36px}.wrap{padding:20px 14px}.grid{gap:10px}.app{padding:13px;min-height:235px}.appicon{width:54px;height:54px}.app h3{font-size:15px}.feature{padding:20px;display:block}}
-</style>
-</head>
-<body>
-<header class="top"><div class="nav">
-<a class="brand" href="#home"><span class="mark">M</span><span>MURUQ.TECH<small>YOUR DIGITAL WORLD</small></span></a>
-<nav><a href="#home">Home</a><a href="#apps">Apps</a><a href="#games">Games</a><a href="#software">Software</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
-</div></header>
-<section class="hero" id="home"><span class="pill">✦ DISCOVER · EXPLORE · DOWNLOAD</span><h1>Find Your Next<br><span>Favorite App.</span></h1><p>Explore popular apps, games and software. Search by name, browse categories, and visit official app pages.</p><span class="pill">ANDROID · SOCIAL · GAMES · MEDIA · PC TOOLS</span></section>
-<main class="wrap" id="apps">
-<div class="searchrow"><label class="search">🔎 <input id="search" type="search" placeholder="Search apps and games..."></label><div class="filters" id="filters"></div></div>
-<h2 class="section-title">Popular Apps ✦</h2><p class="hint">Choose “Get app” to open an official page or trusted app store.</p>
-<div class="grid" id="appGrid"></div>
-<section class="feature" id="games"><div><span class="pill">GAMING CORNER</span><h2>Games for your next match 🎮</h2><p>Open official game and publisher pages. MURUQ.TECH does not host installation files.</p><a class="btn" style="display:inline-block" href="https://play.google.com/store/apps/details?id=jp.konami.pesam" target="_blank" rel="noopener">eFootball on Google Play ↗</a></div><div style="font-size:48px">🎮</div></section>
-<section class="software" id="software"><span class="pill">PC ESSENTIALS</span><h2 class="section-title">Software Downloads</h2><p class="hint">Official publisher download pages.</p><div class="grid" id="softwareGrid"></div></section>
-<section class="about" id="about"><span class="pill">ABOUT MURUQ.TECH</span><div class="aboutgrid"><div><h2>Your digital world, in one place.</h2><p style="color:var(--muted)">MURUQ.TECH is an independent directory for apps, games, software and digital tools. Links take you to official pages or trusted app stores; we do not host app installers.</p><p>✓ Official links<br>✓ Clear categories<br>✓ Honest listings</p></div>
-<div class="ceo-section"><img class="ceo-photo" src="ceo.jpg" alt="CEO photo" onerror="this.style.display='none';document.getElementById('photoHelp').style.display='block'"><p id="photoHelp" class="photo-note" style="display:none">Sawirkaaga ku dar fayl la yiraahdo <b>ceo.jpg</b> agta index.html.</p><h2>MURUQ.TECH</h2><p>Your Digital World</p><p class="photo-note">CEO</p></div></div></section>
-<section class="contact" id="contact"><span class="pill">CONTACT</span><h2>Contact MURUQ.TECH</h2><p style="color:var(--muted)">Email the site owner.</p><a href="mailto:Alicabdilaahi110@gmail.com">Alicabdilaahi110@gmail.com</a></section>
-</main><footer><div class="foot"><span>© 2026 MURUQ.TECH · Independent app directory.</span><span>Links lead to official websites or app stores.</span></div></footer>
+:root{--bg:#080b16;--panel:#121a2c;--line:#26324b;--text:#f5f7ff;--muted:#a5b1c8;--cyan:#31e5ef;--purple:#9d5cff}*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:75px}body{margin:0;background:var(--bg);color:var(--text);font:15px/1.55 system-ui,Arial,sans-serif}a{color:inherit;text-decoration:none}.top{position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:15px;padding:12px 5%;background:#080b16f2;border-bottom:1px solid var(--line)}.brand{display:flex;align-items:center;gap:10px;font-weight:900}.logo{display:grid;place-items:center;width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,var(--purple),var(--cyan));font-size:23px}.brand small{display:block;font-size:9px;letter-spacing:2px;color:var(--muted)}nav{display:flex;gap:15px;flex-wrap:wrap;font-size:12px;color:#c4cde0}.menu{display:none;background:var(--panel);color:white;border:1px solid var(--line);border-radius:8px;padding:8px}.hero{text-align:center;padding:65px 5% 45px;background:radial-gradient(ellipse at 15% 25%,#4b1678aa,transparent 42%),radial-gradient(ellipse at 85% 45%,#006d78a6,transparent 45%),#0b1020}.eyebrow{font-size:10px;font-weight:800;letter-spacing:2px;color:#9eeff4}.hero h1{font-size:clamp(38px,7vw,66px);line-height:1.06;margin:20px auto;letter-spacing:-2px}.hero h1 span{background:linear-gradient(90deg,var(--cyan),#a78bfa);color:transparent;background-clip:text}.hero p{max-width:620px;margin:0 auto 22px;color:var(--muted)}.btn{display:inline-block;background:#172039;border:1px solid #35435f;border-radius:9px;padding:10px 14px;margin:4px;font-weight:750;font-size:12px}.primary{background:linear-gradient(100deg,#21cddc,#9d5cff);color:#08101b;border:0}.ticker{overflow:hidden;white-space:nowrap;padding:12px;text-align:center;border-block:1px solid var(--line);font-size:10px;letter-spacing:2px;color:#aabbd2}.wrap{width:min(1180px,92%);margin:auto}.section{padding:40px 0;border-bottom:1px solid #1c263a}.head{display:flex;justify-content:space-between;align-items:end;gap:15px;margin-bottom:18px}.head h2{font-size:clamp(25px,4vw,34px);margin:6px 0}.head p,.muted{color:var(--muted);font-size:13px}.count,.tag{font-size:10px;border:1px solid #31516a;border-radius:16px;padding:4px 8px;color:#9eeff4}.searchline{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:18px 0}.searchbox{display:flex;align-items:center;gap:8px;flex:1;min-width:220px;border:1px solid var(--cyan);border-radius:12px;padding:10px;background:#10172a}.searchbox input{width:100%;min-width:0;background:transparent;color:white;border:0;outline:0}.filters{display:flex;gap:6px;flex-wrap:wrap}.filter{cursor:pointer;border:1px solid var(--line);border-radius:22px;padding:8px 11px;background:#111729;color:#c4cde0;font-size:11px}.filter.active,.filter:hover{background:linear-gradient(90deg,#24dce6,#b4ffdf);color:#06121a}.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px}.card{background:linear-gradient(145deg,#151d31,#0e1424);border:1px solid var(--line);border-radius:15px;padding:14px;display:flex;flex-direction:column;align-items:flex-start;min-width:0;overflow-wrap:anywhere}.icon{display:grid;place-items:center;width:45px;height:45px;border-radius:12px;background:#f8faff;color:#111;font-size:25px;margin-bottom:10px;overflow:hidden;padding:5px}.icon img{display:block;width:100%;height:100%;object-fit:contain;border-radius:7px}.card h3{font-size:14px;margin:8px 0 3px}.card p{font-size:11px;color:#a3b0c8;min-height:35px;margin:5px 0 10px}.card .btn{width:100%;text-align:center;margin:5px 0 0}.hide{display:none!important}.empty{text-align:center;color:var(--muted);padding:25px}.banner{display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center;padding:25px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(110deg,#17132f,#0e2730)}.banner p,.info p{font-size:12px;color:var(--muted)}.banner-symbol{font-size:65px}.three{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.info{padding:17px;border:1px solid var(--line);border-radius:13px;background:#101729}.info b{display:block}footer{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap;padding:25px 5%;font-size:11px;color:var(--muted)}@media(max-width:850px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.top{flex-wrap:wrap}.menu{display:block}nav{display:none;width:100%;flex-direction:column;gap:0}nav.open{display:flex}nav a{padding:9px 0;border-top:1px solid var(--line)}}@media(max-width:580px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.card{padding:10px}.hero{padding:45px 5%}.head{align-items:start;flex-direction:column}.searchbox{min-width:100%}.banner{grid-template-columns:1fr}.banner-symbol{display:none}.three{grid-template-columns:1fr}}
+</style></head><body>
+<header class="top"><a class="brand" href="#home"><span class="logo">M</span><span>MURUQ.TECH<small>YOUR DIGITAL WORLD</small></span></a><button class="menu" id="menu" aria-expanded="false">☰</button><nav id="nav"><a href="#home">Home</a><a href="#apps">Apps</a><a href="#games">Games</a><a href="#software">Software</a><a href="#windows">Windows</a><a href="#blogs">Blogs</a><a href="#about">About</a><a href="#contact">Contact</a></nav></header>
+<main><section class="hero" id="home"><span class="eyebrow">✦ YOUR DIGITAL APP DESTINATION</span><h1>Find Your Next<br><span>Favorite App.</span></h1><p>Explore useful apps, games, and software. Search by name, browse categories, and open trusted official download pages.</p><a class="btn primary" href="#apps">Discover apps ↓</a><a class="btn" href="#software">Explore software ↗</a></section><div class="ticker">✦ MURUQ.TECH — ALL YOUR APPS IN ONE PLACE　　ANDROID · SOCIAL · GAMES · MEDIA · PC TOOLS　　DISCOVER · EXPLORE · DOWNLOAD</div>
+<section class="section wrap" id="apps"><div class="head"><div><span class="eyebrow">DISCOVER & EXPLORE</span><h2>Popular Apps ✦</h2><p>Open official pages or trusted app stores.</p></div><span class="count" id="count">15 APPS</span></div><div class="searchline"><label class="searchbox">🔎 <input id="search" type="search" placeholder="Search apps and games..." aria-label="Search apps"></label><div class="filters" id="filters"><button class="filter active" data-cat="All">All Apps</button><button class="filter" data-cat="Games">Games</button><button class="filter" data-cat="Social">Social</button><button class="filter" data-cat="Media">Media</button><button class="filter" data-cat="Tools">Tools</button><button class="filter" data-cat="Android">Android</button><button class="filter" data-cat="PC">PC</button></div></div>
+<!-- APP ICONS: Change each card image src URL to replace that app logo. -->\n<div class="grid" id="appGrid">
+<article class="card" data-cat="Games Android"><div class="icon"><img src="https://www.google.com/s2/favicons?domain=konami.com&sz=128" alt="eFootball logo" loading="lazy"></div><span class="tag">Game</span><h3>eFootball™</h3><p>Football game by KONAMI.</p><a class="btn primary" href="https://play.google.com/store/apps/details?id=jp.konami.pesam" target="_blank" rel="noopener">Get app ↗</a><a class="btn" href="https://www.konami.com/efootball/en/" target="_blank" rel="noopener">Info ↗</a></article>
+<article class="card" data-cat="Social Android"><div class="icon"><img src="https://cdn.simpleicons.org/whatsapp/25D366" alt="WhatsApp logo" loading="lazy"></div><span class="tag">Social</span><h3>WhatsApp</h3><p>Chat and call with friends and family.</p><a class="btn primary" href="https://www.whatsapp.com/android/" target="_blank" rel="noopener">Get app ↗</a></article>
+<article class="card" data-cat="Social Android"><div class="icon"><img src="https://cdn.simpleicons.org/telegram/26A5E4" alt="Telegram logo" loading="lazy"></div><span class="tag">Social</span><h3>Telegram</h3><p>Fast messaging, groups, and channels.</p><a class="btn primary" href="https://telegram.org/android" target="_blank" rel="noopener">Get app ↗</a></article>
+<article class="card" data-cat="Social Android"><div class="icon"><img src="https://cdn.simpleicons.org/instagram/E4405F" alt="Instagram logo" loading="lazy"></div><span class="tag">Social</span><h3>Instagram</h3><p>Photos, reels, stories, and messages.</p><a class="btn primary" href="https://www.instagram.com/" target="_blank" rel="noopener">Open site ↗</a></article>
+<article class="card" data-cat="Media Android"><div class="icon"><img src="https://cdn.simpleicons.org/tiktok/000000" alt="TikTok logo" loading="lazy"></div><span class="tag">Media</span><h3>TikTok</h3><p>Discover short videos and creators.</p><a class="btn primary" href="https://www.tiktok.com/" target="_blank" rel="noopener">Open site ↗</a></article>
+<article class="card" data-cat="Social Android"><div class="icon"><img src="https://cdn.simpleicons.org/facebook/0866FF" alt="Facebook logo" loading="lazy"></div><span class="tag">Social</span><h3>Facebook</h3><p>Connect with people and communities.</p><a class="btn primary" href="https://www.facebook.com/" target="_blank" rel="noopener">Open site ↗</a></article>
+<article class="card" data-cat="Media Android"><div class="icon"><img src="https://cdn.simpleicons.org/youtube/FF0033" alt="YouTube logo" loading="lazy"></div><span class="tag">Media</span><h3>YouTube</h3><p>Watch videos, music, and tutorials.</p><a class="btn primary" href="https://www.youtube.com/" target="_blank" rel="noopener">Open site ↗</a></article>
+<article class="card" data-cat="Media Android"><div class="icon"><img src="https://cdn.simpleicons.org/spotify/1DB954" alt="Spotify logo" loading="lazy"></div><span class="tag">Music</span><h3>Spotify</h3><p>Music, podcasts, and playlists.</p><a class="btn primary" href="https://www.spotify.com/" target="_blank" rel="noopener">Get app ↗</a></article>
+<article class="card" data-cat="Social Android"><div class="icon"><img src="https://cdn.simpleicons.org/snapchat/FFFC00" alt="Snapchat logo" loading="lazy"></div><span class="tag">Social</span><h3>Snapchat</h3><p>Snaps, stories, and conversations.</p><a class="btn primary" href="https://www.snapchat.com/" target="_blank" rel="noopener">Open site ↗</a></article>
+<article class="card" data-cat="Social Tools Android"><div class="icon"><img src="https://cdn.simpleicons.org/discord/5865F2" alt="Discord logo" loading="lazy"></div><span class="tag">Community</span><h3>Discord</h3><p>Communities, voice chat, and gaming.</p><a class="btn primary" href="https://discord.com/" target="_blank" rel="noopener">Get app ↗</a></article>
+<article class="card" data-cat="Tools Android"><div class="icon"><img src="https://cdn.simpleicons.org/capcut/000000" alt="CapCut logo" loading="lazy"></div><span class="tag">Creator</span><h3>CapCut</h3><p>Video editing, effects, and captions.</p><a class="btn primary" href="https://www.capcut.com/" target="_blank" rel="noopener">Open site ↗</a></article>
+<article class="card" data-cat="Tools PC"><div class="icon"><img src="https://cdn.simpleicons.org/googlechrome/4285F4" alt="Google Chrome logo" loading="lazy"></div><span class="tag">Browser</span><h3>Google Chrome</h3><p>Browse the web on mobile and desktop.</p><a class="btn primary" href="https://www.google.com/chrome/" target="_blank" rel="noopener">Get app ↗</a></article>
+<article class="card" data-cat="Media Tools PC Android"><div class="icon"><img src="https://cdn.simpleicons.org/vlcmediaplayer/FF8800" alt="VLC logo" loading="lazy"></div><span class="tag">Media</span><h3>VLC</h3><p>Media player for video and audio.</p><a class="btn primary" href="https://www.videolan.org/vlc/" target="_blank" rel="noopener">Get app ↗</a></article>
+<article class="card" data-cat="Tools PC"><div class="icon"><img src="https://cdn.simpleicons.org/firefoxbrowser/FF7139" alt="Firefox logo" loading="lazy"></div><span class="tag">Browser</span><h3>Firefox</h3><p>Browser with privacy tools.</p><a class="btn primary" href="https://www.mozilla.org/firefox/" target="_blank" rel="noopener">Get app ↗</a></article>
+<article class="card" data-cat="Tools PC"><div class="icon"><img src="https://cdn.simpleicons.org/visualstudiocode/007ACC" alt="Visual Studio Code logo" loading="lazy"></div><span class="tag">PC tool</span><h3>VS Code</h3><p>Code editor for web and software projects.</p><a class="btn primary" href="https://code.visualstudio.com/" target="_blank" rel="noopener">Download ↗</a></article>
+</div><p id="empty" class="empty hide">No apps found. Try another search.</p><button class="filter" id="reset">Reset filters</button></section>
+<section class="section wrap" id="games"><div class="banner"><div><span class="eyebrow">GAMING CORNER</span><h2>Games for your next match 🎮</h2><p>Open official game and publisher pages. MURUQ.TECH does not host installation files.</p><a class="btn primary" href="https://play.google.com/store/apps/details?id=jp.konami.pesam" target="_blank" rel="noopener">eFootball on Google Play ↗</a></div><div class="banner-symbol">🎮</div></div></section>
+<section class="section wrap" id="software"><div class="head"><div><span class="eyebrow">PC ESSENTIALS</span><h2>Software Downloads</h2><p>Official publisher download pages.</p></div></div><!-- SOFTWARE ICONS: Replace each img src below to change software logos. -->\n<div class="grid"><article class="card"><div class="icon"><img src="https://cdn.simpleicons.org/7zip/000000" alt="7-Zip logo" loading="lazy"></div><h3>7-Zip</h3><p>Free file archiver for Windows.</p><a class="btn primary" href="https://www.7-zip.org/" target="_blank" rel="noopener">Download ↗</a></article><article class="card"><div class="icon"><img src="https://cdn.simpleicons.org/gimp/5C5543" alt="GIMP logo" loading="lazy"></div><h3>GIMP</h3><p>Image editing and design.</p><a class="btn primary" href="https://www.gimp.org/downloads/" target="_blank" rel="noopener">Download ↗</a></article><article class="card"><div class="icon"><img src="https://cdn.simpleicons.org/krita/3BABFF" alt="Krita logo" loading="lazy"></div><h3>Krita</h3><p>Digital painting software.</p><a class="btn primary" href="https://krita.org/en/download/" target="_blank" rel="noopener">Download ↗</a></article><article class="card"><div class="icon"><img src="https://cdn.simpleicons.org/blender/F5792A" alt="Blender logo" loading="lazy"></div><h3>Blender</h3><p>3D creation and animation.</p><a class="btn primary" href="https://www.blender.org/download/" target="_blank" rel="noopener">Download ↗</a></article></div></section>
+<section class="section wrap" id="windows"><div class="banner"><div><span class="eyebrow">WINDOWS RESOURCES</span><h2>Windows downloads</h2><p>Use Microsoft's official page and back up files before installing.</p><a class="btn primary" href="https://www.microsoft.com/software-download/windows11" target="_blank" rel="noopener">Windows 11 ↗</a></div><div class="banner-symbol">▦</div></div></section>
+<section class="section wrap" id="blogs"><div class="head"><div><span class="eyebrow">LATEST UPDATES</span><h2>Blogs & Guides</h2></div></div><div class="three"><article class="info"><b>Download safely</b><p>Prefer official publisher pages.</p><a href="https://www.cisa.gov/secure-our-world">Safety guide ↗</a></article><article class="info"><b>Protect your files</b><p>Back up important files before installation.</p><a href="https://support.microsoft.com/windows">Windows help ↗</a></article><article class="info"><b>Keep apps updated</b><p>Use official app stores and websites.</p><a href="#apps">Browse apps ↑</a></article></div></section>
+<section class="section wrap" id="about"><span class="eyebrow">ABOUT MURUQ.TECH</span><h2>Your digital world, in one place.</h2><p class="muted">MURUQ.TECH is an independent directory for apps, games, software and digital tools. Links lead to official websites or trusted app stores; we do not host app installers.</p><div class="three"><div class="info"><b>✓ Official links</b><p>Publisher pages and app stores.</p></div><div class="info"><b>✓ Clear categories</b><p>Browse by type.</p></div><div class="info"><b>✓ Honest listings</b><p>External links are labelled.</p></div></div></section>
+<section class="section wrap" id="contact"><span class="eyebrow">CONTACT</span><h2>Contact MURUQ.TECH</h2><p class="muted">Email the site owner.</p><a class="btn primary" href="mailto:Alicabdilaahi110@gmail.com">Alicabdilaahi110@gmail.com</a></section></main>
+
+<section class="section wrap" id="uploadLogo">
+  <span class="eyebrow">CUSTOMIZE YOUR SITE</span>
+  <h2>Ku dar sawirkaaga</h2>
+  <p class="muted">Dooro sawir telefoonkaaga si aad u aragto. Si sawirka uu ugu muuqdo dhammaan dadka booqda website-ka, waa inaad sawirka laftiisa ku darto GitHub oo aad ku xirto code-ka.</p>
+  <label class="btn primary" for="logoUpload">📷 Dooro sawir</label>
+  <input id="logoUpload" type="file" accept="image/*" style="display:block;margin:12px 0;color:#dbe5ff">
+  <div id="uploadPreview" class="icon" style="width:100px;height:100px;display:none"><img id="uploadPreviewImg" alt="Sawirka aad dooratay"></div>
+</section>
+
+<section class="section" id="creator-profile">
+  <div class="profile-card" style="max-width:760px;margin:0 auto;text-align:center;padding:32px 22px;border:1px solid #26334b;border-radius:24px;background:linear-gradient(145deg,#111a2c,#0d1423)">
+    <span class="eyebrow">MEET THE CREATOR</span>
+    <div id="creatorPhotoFrame" style="width:190px;height:230px;margin:24px auto 16px;border-radius:50%;overflow:hidden;background:#18233a;border:3px solid #2a3c59;display:flex;align-items:center;justify-content:center;color:#aab8d0;font-size:58px">
+      <span id="creatorPhotoPlaceholder">👤</span>
+      <img id="creatorPhoto" alt="MURUQ.TECH creator photo" style="display:none;width:100%;height:100%;object-fit:cover">
+    </div>
+    <p style="color:#aebbd1;margin:0 0 8px">FOUNDER / CEO</p>
+    <h2 style="margin:8px 0">MURUQ.TECH</h2>
+    <p style="color:#aebbd1;max-width:560px;margin:0 auto 22px">Your Digital World — apps, games and software in one place.</p>
+    <label class="btn primary" for="creatorPhotoUpload" style="cursor:pointer;display:inline-block">📷 Dooro sawirkaaga</label>
+    <input id="creatorPhotoUpload" type="file" accept="image/*" style="display:block;max-width:100%;margin:14px auto;color:#dce6ff">
+    <p style="font-size:13px;color:#94a3b8;max-width:580px;margin:0 auto">Sawirka aad doorato wuxuu marka hore ka muuqanayaa browser-kan. Si booqdayaasha oo dhan u arkaan, sawirka ku dar GitHub repository-ga, kadibna ku xiro koodhka.</p>
+  </div>
+</section>
 <script>
-const apps=[
-{name:"eFootball™",cat:"Games",desc:"Football game by KONAMI.",icon:"https://cdn.simpleicons.org/googleplay/34A853",emoji:"⚽",url:"https://play.google.com/store/apps/details?id=jp.konami.pesam",label:"Get app",info:"https://www.konami.com/efootball/en/"},
-{name:"WhatsApp",cat:"Social",desc:"Chat and call with friends and family.",icon:"https://cdn.simpleicons.org/whatsapp/25D366",emoji:"🟢",url:"https://play.google.com/store/apps/details?id=com.whatsapp",label:"Get app"},
-{name:"Telegram",cat:"Social",desc:"Fast messaging, groups, and channels.",icon:"https://cdn.simpleicons.org/telegram/26A5E4",emoji:"✈️",url:"https://play.google.com/store/apps/details?id=org.telegram.messenger",label:"Get app"},
-{name:"Instagram",cat:"Social",desc:"Photos, reels, stories, and messages.",icon:"https://cdn.simpleicons.org/instagram/E4405F",emoji:"📷",url:"https://www.instagram.com/",label:"Open site"},
-{name:"TikTok",cat:"Media",desc:"Discover short videos and creators.",icon:"https://cdn.simpleicons.org/tiktok/FFFFFF",emoji:"♪",url:"https://www.tiktok.com/",label:"Open site"},
-{name:"Facebook",cat:"Social",desc:"Connect with people and communities.",icon:"https://cdn.simpleicons.org/facebook/0866FF",emoji:"f",url:"https://www.facebook.com/",label:"Open site"},
-{name:"YouTube",cat:"Media",desc:"Watch videos, music, and tutorials.",icon:"https://cdn.simpleicons.org/youtube/FF0033",emoji:"▶",url:"https://www.youtube.com/",label:"Open site"},
-{name:"Spotify",cat:"Music",desc:"Music, podcasts, and playlists.",icon:"https://cdn.simpleicons.org/spotify/1DB954",emoji:"♫",url:"https://play.google.com/store/apps/details?id=com.spotify.music",label:"Get app"},
-{name:"Snapchat",cat:"Social",desc:"Snaps, stories, and conversations.",icon:"https://cdn.simpleicons.org/snapchat/FFFC00",emoji:"👻",url:"https://www.snapchat.com/",label:"Open site"},
-{name:"Discord",cat:"Community",desc:"Communities, voice chat, and gaming.",icon:"https://cdn.simpleicons.org/discord/5865F2",emoji:"🎮",url:"https://discord.com/",label:"Open site"},
-{name:"CapCut",cat:"Creator",desc:"Video editing, effects, and captions.",icon:"https://cdn.simpleicons.org/capcut/FFFFFF",emoji:"✂️",url:"https://www.capcut.com/",label:"Open site"},
-{name:"Google Chrome",cat:"Tools",desc:"Browse the web on mobile and desktop.",icon:"https://cdn.simpleicons.org/googlechrome/4285F4",emoji:"🌐",url:"https://www.google.com/chrome/",label:"Get app"},
-{name:"VLC",cat:"Media",desc:"Media player for video and audio.",icon:"https://cdn.simpleicons.org/vlcmediaplayer/FF8800",emoji:"🎬",url:"https://www.videolan.org/vlc/",label:"Get app"},
-{name:"Firefox",cat:"Tools",desc:"Browser with privacy tools.",icon:"https://cdn.simpleicons.org/firefox/FF7139",emoji:"🦊",url:"https://www.mozilla.org/firefox/",label:"Get app"},
-{name:"VS Code",cat:"Tools",desc:"Code editor for web and software projects.",icon:"https://cdn.simpleicons.org/visualstudiocode/007ACC",emoji:"💻",url:"https://code.visualstudio.com/",label:"Download"}
-];
-const software=[
-{name:"7-Zip",desc:"Free file archiver for Windows.",icon:"https://cdn.simpleicons.org/7zip/FFFFFF",emoji:"📦",url:"https://www.7-zip.org/"},
-{name:"GIMP",desc:"Image editing and design.",icon:"https://cdn.simpleicons.org/gimp/5C5543",emoji:"🎨",url:"https://www.gimp.org/"},
-{name:"Krita",desc:"Digital painting software.",icon:"https://cdn.simpleicons.org/krita/3BABFF",emoji:"🖌️",url:"https://krita.org/"},
-{name:"Blender",desc:"3D creation and animation.",icon:"https://cdn.simpleicons.org/blender/F5792A",emoji:"🧊",url:"https://www.blender.org/"},
-{name:"LibreOffice",desc:"Free office productivity suite.",icon:"https://cdn.simpleicons.org/libreoffice/18A303",emoji:"📄",url:"https://www.libreoffice.org/"},
-{name:"Audacity",desc:"Audio recording and editing.",icon:"https://cdn.simpleicons.org/audacity/0000CC",emoji:"🎧",url:"https://www.audacityteam.org/"}
-]
+(function(){
+  const picker = document.getElementById('creatorPhotoUpload');
+  if (!picker) return;
+  picker.addEventListener('change', function () {
+    const file = this.files && this.files[0];
+    if (!file) return;
+    if (!file.type.startsWith('image/')) return;
+    const reader = new FileReader();
+    reader.onload = function (event) {
+      const photo = document.getElementById('creatorPhoto');
+      photo.src = event.target.result;
+      photo.style.display = 'block';
+      document.getElementById('creatorPhotoPlaceholder').style.display = 'none';
+    };
+    reader.readAsDataURL(file);
+  });
+})();
+</script>
+
+<footer><a class="brand" href="#home"><span class="logo">M</span><span>MURUQ.TECH<small>YOUR DIGITAL WORLD</small></span></a><p>© <span id="year">2026</span> MURUQ.TECH · Independent app directory.</p><a href="mailto:Alicabdilaahi110@gmail.com">Contact site owner</a></footer>
+<script>
+(()=>{document.getElementById('year').textContent=new Date().getFullYear();const menu=document.getElementById('menu'),nav=document.getElementById('nav');menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(open))});nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));const search=document.getElementById('search'),cards=[...document.querySelectorAll('#appGrid .card')],buttons=[...document.querySelectorAll('[data-cat]')],count=document.getElementById('count'),empty=document.getElementById('empty');let active='All';function update(){const q=search.value.toLowerCase().trim();let n=0;cards.forEach(c=>{const cats=c.dataset.cat.split(' '),show=(active==='All'||cats.includes(active))&&c.textContent.toLowerCase().includes(q);c.classList.toggle('hide',!show);if(show)n++});count.textContent=n+' APPS';empty.classList.toggle('hide',n>0)}buttons.forEach(b=>b.addEventListener('click',()=>{active=b.dataset.cat;buttons.forEach(x=>x.classList.toggle('active',x===b));update()}));search.addEventListener('input',update);document.getElementById('reset').addEventListener('click',()=>{search.value='';active='All';buttons.forEach(x=>x.classList.toggle('active',x.dataset.cat==='All'));update()});update()})();
+</script>
+<script>
+const logoUpload = document.getElementById('logoUpload');
+if (logoUpload) {
+  logoUpload.addEventListener('change', function () {
+    const file = this.files && this.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = function (event) {
+      const preview = document.getElementById('uploadPreview');
+      document.getElementById('uploadPreviewImg').src = event.target.result;
+      preview.style.display = 'grid';
+    };
+    reader.readAsDataURL(file);
+  });
+}
+document.querySelectorAll('.icon img').forEach(function (img) {
+  img.addEventListener('error', function () {
+    this.style.display = 'none';
+    this.parentElement.textContent = this.alt.includes('WhatsApp') ? '☎' :
+      this.alt.includes('Telegram') ? '✈' :
+      this.alt.includes('YouTube') ? '▶' :
+      this.alt.includes('Spotify') ? '♫' : '●';
+  });
+});
+</script>
+
+</body></html> 
