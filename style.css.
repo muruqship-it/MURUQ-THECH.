@@ -78,3 +78,36 @@ footer>a:last-child{color:var(--cyan)}
   display: block;
   margin: 0 auto 20px;
 }
+
+.ceo-section {
+  text-align: center;
+  padding: 60px 20px;
+  background: #f8fafc;
+  color: #172033;
+  border-radius: 20px;
+  margin: 35px 0;
+}
+
+.ceo-photo {
+  width: 220px;
+  height: 260px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto 20px;
+  background: #e5e7eb;
+}
+
+.ceo-label {
+  color: #64748b;
+  margin: 0 0 10px;
+}
+
+.ceo-description {
+  max-width: 650px;
+  margin: 15px auto;
+  font-size: 20px;
+  line-height: 1.7;
+  color: #475569;
+}
