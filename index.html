@@ -29,7 +29,43 @@
 <section class="section wrap" id="blogs"><div class="head"><div><span class="eyebrow">LATEST UPDATES</span><h2>Blogs & Guides</h2></div></div><div class="three"><article class="info"><b>Download safely</b><p>Prefer official publisher pages.</p><a href="https://www.cisa.gov/secure-our-world">Safety guide ↗</a></article><article class="info"><b>Protect your files</b><p>Back up important files before installation.</p><a href="https://support.microsoft.com/windows">Windows help ↗</a></article><article class="info"><b>Keep apps updated</b><p>Use official app stores and websites.</p><a href="#apps">Browse apps ↑</a></article></div></section>
 <section class="section wrap" id="about"><span class="eyebrow">ABOUT MURUQ.TECH</span><h2>Your digital world, in one place.</h2><p class="muted">MURUQ.TECH is an independent directory for apps, games, software and digital tools. Links lead to official websites or trusted app stores; we do not host app installers.</p><div class="three"><div class="info"><b>✓ Official links</b><p>Publisher pages and app stores.</p></div><div class="info"><b>✓ Clear categories</b><p>Browse by type.</p></div><div class="info"><b>✓ Honest listings</b><p>External links are labelled.</p></div></div></section>
 <section class="section wrap" id="contact"><span class="eyebrow">CONTACT</span><h2>Contact MURUQ.TECH</h2><p class="muted">Email the site owner.</p><a class="btn primary" href="mailto:Alicabdilaahi110@gmail.com">Alicabdilaahi110@gmail.com</a></section></main>
+
+<section class="section wrap" id="uploadLogo">
+  <span class="eyebrow">CUSTOMIZE YOUR SITE</span>
+  <h2>Ku dar sawirkaaga</h2>
+  <p class="muted">Dooro sawir telefoonkaaga si aad u aragto. Si sawirka uu ugu muuqdo dhammaan dadka booqda website-ka, waa inaad sawirka laftiisa ku darto GitHub oo aad ku xirto code-ka.</p>
+  <label class="btn primary" for="logoUpload">📷 Dooro sawir</label>
+  <input id="logoUpload" type="file" accept="image/*" style="display:block;margin:12px 0;color:#dbe5ff">
+  <div id="uploadPreview" class="icon" style="width:100px;height:100px;display:none"><img id="uploadPreviewImg" alt="Sawirka aad dooratay"></div>
+</section>
 <footer><a class="brand" href="#home"><span class="logo">M</span><span>MURUQ.TECH<small>YOUR DIGITAL WORLD</small></span></a><p>© <span id="year">2026</span> MURUQ.TECH · Independent app directory.</p><a href="mailto:Alicabdilaahi110@gmail.com">Contact site owner</a></footer>
 <script>
 (()=>{document.getElementById('year').textContent=new Date().getFullYear();const menu=document.getElementById('menu'),nav=document.getElementById('nav');menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(open))});nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));const search=document.getElementById('search'),cards=[...document.querySelectorAll('#appGrid .card')],buttons=[...document.querySelectorAll('[data-cat]')],count=document.getElementById('count'),empty=document.getElementById('empty');let active='All';function update(){const q=search.value.toLowerCase().trim();let n=0;cards.forEach(c=>{const cats=c.dataset.cat.split(' '),show=(active==='All'||cats.includes(active))&&c.textContent.toLowerCase().includes(q);c.classList.toggle('hide',!show);if(show)n++});count.textContent=n+' APPS';empty.classList.toggle('hide',n>0)}buttons.forEach(b=>b.addEventListener('click',()=>{active=b.dataset.cat;buttons.forEach(x=>x.classList.toggle('active',x===b));update()}));search.addEventListener('input',update);document.getElementById('reset').addEventListener('click',()=>{search.value='';active='All';buttons.forEach(x=>x.classList.toggle('active',x.dataset.cat==='All'));update()});update()})();
-</script></body></html>
+</script>
+<script>
+const logoUpload = document.getElementById('logoUpload');
+if (logoUpload) {
+  logoUpload.addEventListener('change', function () {
+    const file = this.files && this.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = function (event) {
+      const preview = document.getElementById('uploadPreview');
+      document.getElementById('uploadPreviewImg').src = event.target.result;
+      preview.style.display = 'grid';
+    };
+    reader.readAsDataURL(file);
+  });
+}
+document.querySelectorAll('.icon img').forEach(function (img) {
+  img.addEventListener('error', function () {
+    this.style.display = 'none';
+    this.parentElement.textContent = this.alt.includes('WhatsApp') ? '☎' :
+      this.alt.includes('Telegram') ? '✈' :
+      this.alt.includes('YouTube') ? '▶' :
+      this.alt.includes('Spotify') ? '♫' : '●';
+  });
+});
+</script>
+
+</body></html>
