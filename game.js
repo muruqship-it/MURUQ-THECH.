@@ -1,23 +1,8 @@
-
-document.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll('a[href="#games"]').forEach(link => {
-    link.addEventListener("click", event => {
-      event.preventDefault();
-
-      const button = document.querySelector(
-        '#filters [data-filter="Games"]'
-      );
-
-      const section = document.getElementById("apps");
-
-      if (button) button.click();
-
-      if (section) {
-        section.scrollIntoView({
-          behavior: "smooth",
-          block: "start"
-        });
-      }
-    });
-  });
-});
+// MURUQ.TECH optional game hook.
+// Kept separate from the app catalog so it cannot stop search or filters.
+// Add your existing game logic here only after backing up the original file.
+(() => {
+  "use strict";
+  window.MURUQ = window.MURUQ || {};
+  window.MURUQ.gameReady = true;
+})();
